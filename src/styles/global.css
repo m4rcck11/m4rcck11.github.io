@@ -78,8 +78,8 @@
 }
 
 .service-card-inner {
-  background: #2a2a2a;
-  border: 2px solid #404040;
+  background: #1a1a1a;
+  border: 2px solid #2a2a2a;
   border-radius: 8px;
   padding: 2rem;
   height: 100%;
@@ -90,8 +90,8 @@
 }
 
 .service-card:hover .service-card-inner {
-  border-color: #606060;
-  background: #333333;
+  border-color: #404040;
+  background: #0f0f0f;
 }
 
 /* Status Light Styles */
@@ -135,19 +135,19 @@
 .service-icon {
   width: 80px;
   height: 80px;
-  background: #404040;
+  background: #2a2a2a;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  color: #e0e0e0;
-  border: 2px solid #505050;
+  color: #d0d0d0;
+  border: 2px solid #404040;
   transition: all 0.3s ease;
 }
 
 .service-card:hover .service-icon {
-  background: #505050;
+  background: #404040;
   border-color: #606060;
   color: #ffffff;
 }
