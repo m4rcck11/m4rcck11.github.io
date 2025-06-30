@@ -1,0 +1,321 @@
+---
+// Component for synthwave/retrowave style background in shades of gray
+---
+
+<div id="retrowave-background" class="absolute inset-0 z-0"></div>
+
+<script client:load>
+  import * as THREE from 'three';
+
+  // Wait a bit to make sure the DOM is ready
+  setTimeout(() => {
+    console.log('Initializing RetrowaveBackground...');
+    
+    // Three.js scene setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ 
+      antialias: true, 
+      alpha: true 
+    });
+
+    // Configure renderer
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000, 0); // Transparent
+    renderer.domElement.style.position = 'absolute';
+    renderer.domElement.style.top = '0';
+    renderer.domElement.style.left = '0';
+    renderer.domElement.style.zIndex = '-1';
+
+    // Add to container
+    const container = document.getElementById('retrowave-background');
+    if (container) {
+      container.appendChild(renderer.domElement);
+      console.log('Canvas added to container');
+    } else {
+      console.error('retrowave-background container not found');
+      return;
+    }
+
+  // Create the sun with improved horizontal lines
+  const sunGroup = new THREE.Group();
+  
+  // Main sun circle with gradient
+  const sunGeometry = new THREE.CircleGeometry(18, 64);
+  const sunMaterial = new THREE.MeshBasicMaterial({ 
+    color: 0x888888,
+    transparent: true,
+    opacity: 0.9
+  });
+  const sun = new THREE.Mesh(sunGeometry, sunMaterial);
+  sun.position.set(0, 10, -80);
+  sunGroup.add(sun);
+
+  // Brighter inner circle
+  const innerSunGeometry = new THREE.CircleGeometry(12, 64);
+  const innerSunMaterial = new THREE.MeshBasicMaterial({ 
+    color: 0xaaaaaa,
+    transparent: true,
+    opacity: 0.7
+  });
+  const innerSun = new THREE.Mesh(innerSunGeometry, innerSunMaterial);
+  innerSun.position.set(0, 10, -79.8);
+  sunGroup.add(innerSun);
+
+  // Horizontal lines of the sun with thickness variation
+  for (let i = 0; i < 35; i++) {
+    const lineGeometry = new THREE.BufferGeometry();
+    const y = 28 - (i * 1.6); // Line spacing
+    const radius = 18;
+    const distanceFromCenter = Math.abs(y - 10);
+    
+    if (distanceFromCenter < radius) {
+      const width = Math.sqrt(radius * radius - distanceFromCenter * distanceFromCenter) * 2;
+      
+      const points = [
+        new THREE.Vector3(-width, y, -79.5),
+        new THREE.Vector3(width, y, -79.5)
+      ];
+      lineGeometry.setFromPoints(points);
+      
+      // Variable opacity based on distance from the center
+      const opacity = 0.8 - (distanceFromCenter / radius) * 0.4;
+      
+      const lineMaterial = new THREE.LineBasicMaterial({ 
+        color: 0x666666,
+        transparent: true,
+        opacity: opacity
+      });
+      
+      const line = new THREE.Line(lineGeometry, lineMaterial);
+      sunGroup.add(line);
+    }
+  }
+
+  // Add particles around the sun
+  const sunParticlesGeometry = new THREE.BufferGeometry();
+  const sunParticlesCount = 50;
+  const sunParticlesPositions = new Float32Array(sunParticlesCount * 3);
+
+  for (let i = 0; i < sunParticlesCount; i++) {
+    const angle = (i / sunParticlesCount) * Math.PI * 2;
+    const radius = 20 + Math.random() * 10;
+    
+    sunParticlesPositions[i * 3] = Math.cos(angle) * radius; // x
+    sunParticlesPositions[i * 3 + 1] = 10 + Math.sin(angle) * radius * 0.3; // y
+    sunParticlesPositions[i * 3 + 2] = -80; // z
+  }
+
+  sunParticlesGeometry.setAttribute('position', new THREE.BufferAttribute(sunParticlesPositions, 3));
+
+  const sunParticlesMaterial = new THREE.PointsMaterial({
+    color: 0x777777,
+    size: 0.8,
+    transparent: true,
+    opacity: 0.4,
+    blending: THREE.AdditiveBlending
+  });
+
+  const sunParticles = new THREE.Points(sunParticlesGeometry, sunParticlesMaterial);
+  sunGroup.add(sunParticles);
+  
+  scene.add(sunGroup);
+
+  // Create main grid
+  const gridGroup = new THREE.Group();
+  
+  // Horizontal grid
+  const gridSize = 100;
+  const gridDivisions = 50;
+  const mainGrid = new THREE.GridHelper(gridSize, gridDivisions, 0x555555, 0x333333);
+  mainGrid.position.y = -15;
+  mainGrid.rotation.x = -Math.PI / 2;
+  gridGroup.add(mainGrid);
+
+  // Multiple grid layers for depth
+  for (let i = 1; i <= 3; i++) {
+    const layerGrid = new THREE.GridHelper(gridSize, gridDivisions, 0x444444, 0x222222);
+    layerGrid.position.y = -15;
+    layerGrid.position.z = -i * 30;
+    layerGrid.rotation.x = -Math.PI / 2;
+    layerGrid.material.transparent = true;
+    layerGrid.material.opacity = 0.6 - i * 0.1;
+    gridGroup.add(layerGrid);
+  }
+
+  scene.add(gridGroup);
+
+  // Create side wireframe mountains
+  const mountainGroup = new THREE.Group();
+
+  // Function to create a more detailed wireframe mountain
+  function createMountain(side, complexity = 30) {
+    const mountainGroup = new THREE.Group();
+    
+    // Create multiple layers of mountains for more realism
+    const layers = [
+      { width: 50, height: 30, segments: complexity, opacity: 0.8 },
+      { width: 45, height: 25, segments: complexity - 5, opacity: 0.6 },
+      { width: 40, height: 20, segments: complexity - 10, opacity: 0.4 }
+    ];
+    
+    layers.forEach((layer, layerIndex) => {
+      const points = [];
+      
+      // Create mountain profile with multiple peaks
+      for (let i = 0; i <= layer.segments; i++) {
+        const x = (i / layer.segments) * layer.width - layer.width / 2;
+        
+        // Create multiple peaks using multiple sine functions
+        let height = 0;
+        height += Math.sin((i / layer.segments) * Math.PI * 2) * layer.height * 0.4;
+        height += Math.sin((i / layer.segments) * Math.PI * 4) * layer.height * 0.2;
+        height += Math.sin((i / layer.segments) * Math.PI * 8) * layer.height * 0.1;
+        height += (Math.random() - 0.5) * layer.height * 0.1; // Noise
+        
+        // Ensure the edges are lower
+        const edgeFactor = Math.sin((i / layer.segments) * Math.PI);
+        height *= edgeFactor;
+        
+        points.push(new THREE.Vector3(x, -15 + Math.abs(height), -layerIndex * 5));
+      }
+      
+      // Create line geometry
+      const mountainGeometry = new THREE.BufferGeometry().setFromPoints(points);
+      const mountainMaterial = new THREE.LineBasicMaterial({ 
+        color: 0x666666 - layerIndex * 0x111111,
+        transparent: true,
+        opacity: layer.opacity
+      });
+      
+      const mountainLine = new THREE.Line(mountainGeometry, mountainMaterial);
+      
+      // Create vertical lines for wireframe effect
+      for (let i = 0; i < points.length; i += 3) {
+        const verticalGeometry = new THREE.BufferGeometry();
+        const verticalPoints = [
+          new THREE.Vector3(points[i].x, -15, points[i].z),
+          new THREE.Vector3(points[i].x, points[i].y, points[i].z)
+        ];
+        verticalGeometry.setFromPoints(verticalPoints);
+        
+        const verticalMaterial = new THREE.LineBasicMaterial({ 
+          color: 0x444444 - layerIndex * 0x111111,
+          transparent: true,
+          opacity: layer.opacity * 0.5
+        });
+        
+        const verticalLine = new THREE.Line(verticalGeometry, verticalMaterial);
+        mountainGroup.add(verticalLine);
+      }
+      
+      mountainGroup.add(mountainLine);
+    });
+    
+    mountainGroup.position.x = side * 70; // Side position
+    mountainGroup.position.z = -40;
+    
+    return mountainGroup;
+  }
+
+  // Create mountains on both sides
+  for (let side of [-1, 1]) {
+    for (let depth = 0; depth < 3; depth++) {
+      const mountain = createMountain(side);
+      mountain.position.z = -30 - depth * 25;
+      mountain.scale.set(1 - depth * 0.2, 1 - depth * 0.1, 1);
+      mountain.material.opacity = 0.7 - depth * 0.2;
+      mountainGroup.add(mountain);
+    }
+  }
+
+  scene.add(mountainGroup);
+
+  // Position camera
+  camera.position.set(0, 0, 20);
+  camera.lookAt(0, -5, -20);
+
+  // Add fog for a depth effect
+  scene.fog = new THREE.Fog(0x2a2a2a, 50, 200);
+
+  // Animation variables
+  let animationTime = 0;
+  const gridSpeed = 0.01;
+
+  // Animation function
+  function animate() {
+    requestAnimationFrame(animate);
+    
+    animationTime += 0.01;
+
+    // Continuous grid movement
+    gridGroup.position.z += gridSpeed;
+    if (gridGroup.position.z > 30) {
+      gridGroup.position.z = -30;
+    }
+
+    // Subtle sun rotation
+    sunGroup.rotation.z += 0.001;
+
+    // Sun particles animation
+    const sunParticlesPositions = sunParticles.geometry.attributes.position.array;
+    for (let i = 0; i < sunParticlesCount; i++) {
+      const angle = (i / sunParticlesCount) * Math.PI * 2 + animationTime * 0.5;
+      const radius = 20 + Math.sin(animationTime * 2 + i) * 5;
+      
+      sunParticlesPositions[i * 3] = Math.cos(angle) * radius; // x
+      sunParticlesPositions[i * 3 + 1] = 10 + Math.sin(angle) * radius * 0.3; // y
+    }
+    sunParticles.geometry.attributes.position.needsUpdate = true;
+
+    // Subtle mountain movement
+    mountainGroup.children.forEach((mountain, index) => {
+      if (mountain.children) {
+        // If it's a mountain group
+        mountain.position.z += gridSpeed * 0.3;
+        if (mountain.position.z > 60) {
+          mountain.position.z = -120;
+        }
+        
+        // Subtle vertical oscillation
+        mountain.position.y = Math.sin(animationTime * 0.5 + index) * 0.3;
+      }
+    });
+
+    // Subtle sun pulsation
+    const pulseFactor = 1 + Math.sin(animationTime * 1.5) * 0.03;
+    sunGroup.scale.set(pulseFactor, pulseFactor, pulseFactor);
+
+    // Opacity variation of the inner sun circle
+    innerSun.material.opacity = 0.7 + Math.sin(animationTime * 3) * 0.2;
+
+    renderer.render(scene, camera);
+  }
+
+  // Window resizing
+  function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+
+  window.addEventListener('resize', onWindowResize);
+
+  // Start animation
+  animate();
+
+    // Cleanup when the component is removed
+    window.addEventListener('beforeunload', () => {
+      renderer.dispose();
+      scene.clear();
+    });
+    
+    console.log('RetrowaveBackground initialized successfully!');
+  }, 100); // Wait 100ms
+</script>
+
+<style>
+  #retrowave-background {
+    pointer-events: none;
+  }
+</style> 

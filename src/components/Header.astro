@@ -1,0 +1,268 @@
+---
+// Header component
+---
+
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <nav class="container-custom">
+    <div class="flex items-center justify-between py-4">
+      <!-- Logo -->
+      <a href="#home" class="flex items-center space-x-3 hover:scale-105 transition-transform duration-300">
+        <img src="/logo.svg" alt="MARKDEV Logo" class="h-32 w-auto">
+        <!-- <span class="text-2xl font-bold font-tech text-gradient hidden sm:block">MARKDEV</span> -->
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#home" class="nav-link" data-text="Home">
+          <span class="glitch-layer">Home</span>
+          <span class="glitch-layer">Home</span>
+          Home
+        </a>
+        <a href="#section-1" class="nav-link" data-text="Section 1">
+          <span class="glitch-layer">Section 1</span>
+          <span class="glitch-layer">Section 1</span>
+          Section 1
+        </a>
+        <a href="#section-2" class="nav-link" data-text="Section 2">
+          <span class="glitch-layer">Section 2</span>
+          <span class="glitch-layer">Section 2</span>
+          Section 2
+        </a>
+        <a href="#section-3" class="nav-link" data-text="About Me">
+          <span class="glitch-layer">About Me</span>
+          <span class="glitch-layer">About Me</span>
+          About Me
+        </a>
+        
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300">
+          <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+          <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden pb-4">
+      <div class="flex flex-col space-y-4">
+        <a href="#home" class="nav-link" data-text="Home">
+          <span class="glitch-layer">Home</span>
+          <span class="glitch-layer">Home</span>
+          Home
+        </a>
+        <a href="#section-1" class="nav-link" data-text="Section 1">
+          <span class="glitch-layer">Section 1</span>
+          <span class="glitch-layer">Section 1</span>
+          Section 1
+        </a>
+        <a href="#section-2" class="nav-link" data-text="Section 2">
+          <span class="glitch-layer">Section 2</span>
+          <span class="glitch-layer">Section 2</span>
+          Section 2
+        </a>
+        <a href="#section-3" class="nav-link" data-text="About Me">
+          <span class="glitch-layer">About Me</span>
+          <span class="glitch-layer">About Me</span>
+          About Me
+        </a>
+        
+        <!-- Mobile Theme Toggle -->
+        <button id="mobile-theme-toggle" class="flex items-center space-x-2 p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300">
+          <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+          <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+          <span class="dark:hidden">Dark Mode</span>
+          <span class="hidden dark:block">Light Mode</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<style>
+  /* Header sempre transparente */
+  #navbar {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  
+  .nav-link {
+    @apply text-gray-300 font-medium relative overflow-hidden;
+    transition: color 0.3s ease;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  /* Linhas glitch que aparecem no hover */
+  .nav-link::before {
+    content: " ";
+    display: block;
+    opacity: 0;
+    width: 20px;
+    height: 1px;
+    background: #fff;
+    border-bottom: 1px solid #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 30;
+    margin-left: -30px;
+    margin-top: 8px;
+  }
+  
+  .nav-link::after {
+    content: " ";
+    display: block;
+    opacity: 0;
+    width: 35px;
+    height: 1px;
+    background: #fff;
+    border-bottom: 1px solid #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 30;
+    margin-left: 25px;
+    margin-top: -5px;
+  }
+  
+  /* Camadas de texto glitch */
+  .nav-link .glitch-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  .nav-link .glitch-layer:nth-child(1) {
+    color: #00ffff;
+  }
+  
+  .nav-link .glitch-layer:nth-child(2) {
+    color: #ff0000;
+  }
+  
+  /* Efeitos no hover */
+  .nav-link:hover {
+    cursor: pointer;
+    color: #efefef;
+  }
+  
+  .nav-link:hover::before,
+  .nav-link:hover::after {
+    animation: lines 0.25s infinite;
+  }
+  
+  .nav-link:hover .glitch-layer:nth-child(1) {
+    animation: reverse-position 0.25s infinite;
+  }
+  
+  .nav-link:hover .glitch-layer:nth-child(2) {
+    animation: forward-position 0.25s infinite;
+  }
+  
+  /* Animações */
+  @keyframes reverse-position {
+    0% { 
+      left: 0; 
+      top: 0; 
+    }
+    50% { 
+      left: -3px; 
+      top: -3px; 
+    }
+    100% { 
+      left: 0; 
+      top: 0; 
+    }
+  }
+  
+  @keyframes forward-position {
+    0% { 
+      left: 0; 
+      top: 0; 
+    }
+    50% { 
+      left: 3px; 
+      top: 3px; 
+    }
+    100% { 
+      left: 0; 
+      top: 0; 
+    }
+  }
+  
+  @keyframes lines {
+    0% { 
+      opacity: 0.8; 
+    }
+    30% { 
+      opacity: 0; 
+    }
+    50% { 
+      opacity: 0.4; 
+    }
+    80% { 
+      opacity: 0; 
+    }
+    100% { 
+      opacity: 0.8; 
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+    
+    // Close mobile menu when clicking on a link
+    const mobileNavLinks = mobileMenu?.querySelectorAll('.nav-link');
+    mobileNavLinks?.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Mobile theme toggle
+    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    if (mobileThemeToggle) {
+      mobileThemeToggle.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.contains('dark');
+        const newTheme = isDark ? 'light' : 'dark';
+        document.documentElement.classList.toggle('dark', newTheme === 'dark');
+        localStorage.setItem('theme', newTheme);
+      });
+    }
+  });
+</script> 

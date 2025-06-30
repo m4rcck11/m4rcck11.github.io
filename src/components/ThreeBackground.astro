@@ -1,0 +1,212 @@
+---
+// Component for a 3D background using Three.js
+---
+
+<div id="three-background" class="absolute inset-0 z-0"></div>
+
+<script client:load>
+  import * as THREE from 'three';
+  
+  // Wait a bit to make sure the DOM is ready
+  setTimeout(() => {
+    console.log('Initializing ThreeBackground...');
+
+  // Three.js scene setup
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ 
+    antialias: true, 
+    alpha: true 
+  });
+
+  // Configure renderer
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setClearColor(0x000000, 0); // Transparent
+  renderer.domElement.style.position = 'absolute';
+  renderer.domElement.style.top = '0';
+  renderer.domElement.style.left = '0';
+  renderer.domElement.style.zIndex = '-1';
+
+  // Add to container
+  const container = document.getElementById('three-background');
+  if (container) {
+    container.appendChild(renderer.domElement);
+  }
+
+  // Create grid geometry with perspective
+  const gridGroup = new THREE.Group();
+  
+  // Main grid with more density
+  const gridSize = 80;
+  const gridDivisions = 80;
+  const gridHelper = new THREE.GridHelper(gridSize, gridDivisions, 0x404040, 0x2a2a2a);
+  
+  // Rotate the grid to create a diagonal perspective
+  gridHelper.rotation.x = -Math.PI / 2.2; // More diagonal angle
+  gridHelper.position.y = -5;
+  gridHelper.position.z = -20;
+  
+  gridGroup.add(gridHelper);
+
+  // Create multiple grid layers for depth
+  for (let layer = 0; layer < 5; layer++) {
+    const layerGrid = new THREE.GridHelper(gridSize, gridDivisions, 0x404040, 0x1a1a1a);
+    layerGrid.rotation.x = -Math.PI / 2.2;
+    layerGrid.position.y = -5 - layer * 3;
+    layerGrid.position.z = -20 - layer * 15;
+    
+    // Gradually decrease the opacity of the farthest layers
+    layerGrid.material.transparent = true;
+    layerGrid.material.opacity = 0.8 - layer * 0.15;
+    
+    gridGroup.add(layerGrid);
+  }
+
+  // Create side lines for a tunnel effect
+  const tunnelLines = [];
+  for (let side = 0; side < 2; side++) {
+    const sideMultiplier = side === 0 ? -1 : 1;
+    
+    for (let i = 0; i < 20; i++) {
+      const geometry = new THREE.BufferGeometry();
+      const material = new THREE.LineBasicMaterial({ 
+        color: 0x404040, 
+        transparent: true, 
+        opacity: 0.4 - i * 0.015
+      });
+      
+      const points = [];
+      const x = sideMultiplier * (15 + i * 2);
+      points.push(new THREE.Vector3(x, -2, -100));
+      points.push(new THREE.Vector3(x, -2, 100));
+      
+      geometry.setFromPoints(points);
+      const line = new THREE.Line(geometry, material);
+      tunnelLines.push(line);
+      gridGroup.add(line);
+    }
+  }
+
+  scene.add(gridGroup);
+
+  // Create luminous particles
+  const particlesGeometry = new THREE.BufferGeometry();
+  const particlesCount = 200;
+  const particlesPositions = new Float32Array(particlesCount * 3);
+  const particlesVelocities = [];
+
+  for (let i = 0; i < particlesCount; i++) {
+    // Random initial positions
+    particlesPositions[i * 3] = (Math.random() - 0.5) * 100; // x
+    particlesPositions[i * 3 + 1] = Math.random() * 20 - 10; // y
+    particlesPositions[i * 3 + 2] = Math.random() * 200 - 100; // z
+    
+    // Random velocities
+    particlesVelocities.push({
+      x: (Math.random() - 0.5) * 0.02,
+      y: (Math.random() - 0.5) * 0.01,
+      z: Math.random() * 0.1 + 0.05
+    });
+  }
+
+  particlesGeometry.setAttribute('position', new THREE.BufferAttribute(particlesPositions, 3));
+
+  const particlesMaterial = new THREE.PointsMaterial({
+    color: 0x606060,
+    size: 0.5,
+    transparent: true,
+    opacity: 0.6,
+    blending: THREE.AdditiveBlending
+  });
+
+  const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+  scene.add(particles);
+
+  // Position camera for better perspective
+  camera.position.set(0, 8, 15);
+  camera.lookAt(0, -5, -30);
+  
+  // Adjust field of view for a more dramatic effect
+  camera.fov = 60;
+  camera.updateProjectionMatrix();
+
+  // Add fog for a depth effect
+  scene.fog = new THREE.Fog(0x242323, 20, 100);
+
+  // Variables for animation with a perfect loop system
+  const gridSpeed = 0.03;
+  const basePosition = -20; // Grid base position
+  const loopDistance = 10; // Distance for a perfect loop based on grid geometry
+  let timeOffset = 0;
+
+  // Animation function
+  function animate() {
+    requestAnimationFrame(animate);
+
+    // Increment time continuously
+    timeOffset += gridSpeed;
+    
+    // Apply movement with a perfect mathematical loop - no jumps
+    gridGroup.position.z = basePosition + (timeOffset % loopDistance);
+
+    // Add subtle rotation for more dynamism (based on real time)
+    gridGroup.rotation.y = Math.sin(timeOffset * 0.02) * 0.015;
+
+    // Animate particles with a smooth loop system
+    const positions = particles.geometry.attributes.position.array;
+    for (let i = 0; i < particlesCount; i++) {
+      const i3 = i * 3;
+      
+      // Update particle positions
+      positions[i3] += particlesVelocities[i].x; // x
+      positions[i3 + 1] += particlesVelocities[i].y; // y
+      positions[i3 + 2] += particlesVelocities[i].z; // z
+      
+      // Smooth reset of particles with a mathematical loop
+      if (positions[i3 + 2] > 50) {
+        positions[i3] = (Math.random() - 0.5) * 100;
+        positions[i3 + 1] = Math.random() * 20 - 10;
+        positions[i3 + 2] = -100;
+      }
+      
+      // Reset particles that have gone off the sides
+      if (Math.abs(positions[i3]) > 60) {
+        positions[i3] = (Math.random() - 0.5) * 100;
+      }
+      if (Math.abs(positions[i3 + 1]) > 15) {
+        positions[i3 + 1] = Math.random() * 20 - 10;
+      }
+    }
+    
+    particles.geometry.attributes.position.needsUpdate = true;
+
+    renderer.render(scene, camera);
+  }
+
+  // Window resizing
+  function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+
+  window.addEventListener('resize', onWindowResize);
+
+  // Start animation
+  animate();
+
+    // Cleanup when the component is removed
+    window.addEventListener('beforeunload', () => {
+      renderer.dispose();
+      scene.clear();
+    });
+    
+    console.log('ThreeBackground initialized successfully!');
+  }, 100); // Wait 100ms
+</script>
+
+<style>
+  #three-background {
+    pointer-events: none;
+  }
+</style> 

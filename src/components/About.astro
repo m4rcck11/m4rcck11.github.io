@@ -1,0 +1,328 @@
+---
+// About section component
+---
+
+<section id="about" class="section-padding" style="background-color: #242323; position: relative;">
+  <div class="container-custom">
+    <div class="text-center mb-16 animate-on-scroll">
+      <h2 class="text-4xl font-bold font-tech mb-4 text-gray-900 dark:text-white">
+        About <span class="text-gradient">Me</span>
+      </h2>
+      <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        Learn more about my journey as a developer and my passions
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Content -->
+      <div class="animate-on-scroll">
+        <h3 class="text-2xl font-bold font-display mb-6 text-gray-900 dark:text-white">
+          Full Stack Developer passionate about technology
+        </h3>
+        
+        <div class="space-y-4 text-gray-600 dark:text-gray-400">
+          <p>
+            I am a full stack developer with over <strong class="text-gray-900 dark:text-gray-100">5 years of experience</strong> 
+            creating modern and scalable web applications. My passion is to transform complex ideas into elegant 
+            and functional digital solutions.
+          </p>
+          
+          <p>
+            I work mainly with <strong class="text-gray-900 dark:text-gray-100">JavaScript/TypeScript</strong>, 
+            React, Node.js, and modern technologies like Next.js and Astro. I always seek the best development practices 
+            and design patterns to create clean and maintainable code.
+          </p>
+          
+          <p>
+            When I'm not coding, I like to contribute to the open source community, write technical articles 
+            and explore new technologies. I believe that continuous learning is fundamental for a successful developer.
+          </p>
+        </div>
+        
+        <!-- Skills highlight -->
+        <div class="mt-8 flex flex-wrap gap-3">
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Next.js</span>
+          <span class="skill-tag">Astro</span>
+          <span class="skill-tag">TailwindCSS</span>
+          <span class="skill-tag">PostgreSQL</span>
+        </div>
+      </div>
+      
+      <!-- Stats -->
+      <div class="animate-on-scroll animation-delay-200">
+        <div class="grid grid-cols-2 gap-6">
+          <div class="stat-card">
+            <div class="stat-number" data-target="50">0</div>
+            <div class="stat-label">Completed Projects</div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-number" data-target="5">0</div>
+            <div class="stat-label">Years of Experience</div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-number" data-target="15">0</div>
+            <div class="stat-label">Technologies</div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-number" data-target="100">0</div>
+            <div class="stat-label">% Satisfaction</div>
+          </div>
+        </div>
+        
+        <!-- Timeline -->
+        <div class="mt-12">
+          <h4 class="text-xl font-bold font-tech mb-6 text-gray-900 dark:text-white">My Journey</h4>
+          <div class="space-y-6">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h5 class="font-semibold text-gray-900 dark:text-white">2024 - Present</h5>
+                <p class="text-gray-600 dark:text-gray-400">Senior Full Stack Developer</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h5 class="font-semibold text-gray-900 dark:text-white">2022 - 2024</h5>
+                <p class="text-gray-600 dark:text-gray-400">Mid-Level Full Stack Developer</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h5 class="font-semibold text-gray-900 dark:text-white">2019 - 2022</h5>
+                <p class="text-gray-600 dark:text-gray-400">Junior Front-end Developer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Avatar com balão de mensagem -->
+  <div class="avatar-message-container">
+    <div class="avatar-circle">
+      <img src="/images/Marcelo_3D.jpeg" alt="Marcelo 3D" class="avatar-image" />
+      <div class="online-status-indicator"></div>
+    </div>
+    <div class="message-balloon">
+      <p class="message-text">Marcelo is online now! Want to talk now?</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skill-tag {
+    @apply px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full text-sm font-medium;
+  }
+  
+  .stat-card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-200 dark:border-gray-700 p-6 text-center;
+  }
+  
+  .stat-number {
+    @apply text-3xl font-bold font-tech text-gray-900 dark:text-gray-100 mb-2;
+  }
+  
+  .stat-label {
+    @apply text-gray-600 dark:text-gray-400 text-sm;
+  }
+  
+  .timeline-item {
+    @apply relative pl-8;
+  }
+  
+  .timeline-dot {
+    @apply absolute left-0 top-1 w-3 h-3 bg-gray-800 dark:bg-gray-300 rounded-full;
+  }
+  
+  .timeline-dot::before {
+    content: '';
+    @apply absolute left-1/2 top-full w-0.5 h-6 bg-gray-400 dark:bg-gray-600 transform -translate-x-1/2;
+  }
+  
+  .timeline-item:last-child .timeline-dot::before {
+    display: none;
+  }
+  
+  .timeline-content {
+    @apply ml-4;
+  }
+  
+  /* Avatar com balão de mensagem */
+  .avatar-message-container {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    z-index: 200;
+    animation: slideInFromLeft 0.8s ease-out;
+  }
+  
+  .avatar-circle {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+  }
+  
+  .avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .online-status-indicator {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 18px;
+    height: 18px;
+    background: #00ff00;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.6);
+    animation: pulse-status 2s infinite;
+  }
+  
+  @keyframes pulse-status {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 8px rgba(0, 255, 0, 0.6);
+    }
+    50% {
+      transform: scale(1.1);
+      box-shadow: 0 0 12px rgba(0, 255, 0, 0.8);
+    }
+  }
+  
+  .message-balloon {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border: 2px solid #e9ecef;
+    border-radius: 20px;
+    padding: 16px 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    max-width: 280px;
+    position: relative;
+    margin-bottom: 10px;
+  }
+  
+  .message-text {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Responsividade para o avatar */
+  @media (max-width: 1024px) {
+    .avatar-message-container {
+      bottom: 20px;
+      left: 20px;
+    }
+    
+    .avatar-circle {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .online-status-indicator {
+      width: 15px;
+      height: 15px;
+    }
+    
+    .message-balloon {
+      max-width: 220px;
+      padding: 12px 16px;
+    }
+    
+    .message-text {
+      font-size: 13px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .avatar-message-container {
+      position: static;
+      margin-top: 30px;
+      justify-content: center;
+    }
+    
+    .message-balloon {
+      max-width: 250px;
+    }
+  }
+</style>
+
+<script>
+  // Counter animation
+  document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.stat-number');
+    
+    const animateCounter = (counter: Element) => {
+      const target = parseInt(counter.getAttribute('data-target') || '0');
+      const speed = 2000; // 2 seconds
+      const increment = target / speed * 16; // 60fps
+      let current = 0;
+      
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          counter.textContent = Math.ceil(current).toString();
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target.toString();
+        }
+      };
+      
+      updateCounter();
+    };
+    
+    // Intersection Observer for counter animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          animateCounter(counter);
+          observer.unobserve(counter);
+        }
+      });
+    }, {
+      threshold: 0.5
+    });
+    
+    counters.forEach((counter) => {
+      observer.observe(counter);
+    });
+  });
+</script> 

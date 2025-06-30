@@ -1,0 +1,812 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ThreeBackground from '../components/ThreeBackground.astro';
+import RetrowaveBackground from '../components/RetrowaveBackground.astro';
+import RetrowaveBackgroundV2 from '../components/RetrowaveBackgroundV2.astro';
+import WindowsXPProfile from '../components/WindowsXPProfile.astro';
+import WindowsXPMainWindow from '../components/WindowsXPMainWindow.astro';
+import '../styles/global.css';
+---
+
+<Layout title="MARKDEV - Full Stack Portfolio">
+  <Header />
+  <main>
+    <!-- Todas as seções agora estão no mesmo fluxo para scroll snap -->
+    <Hero />
+    
+    <!-- Seções de conteúdo -->
+    <section 
+      id="about" 
+      class="min-h-screen flex items-center justify-center relative overflow-hidden scroll-section snap-section system-background"
+      style="background-color: #000000;"
+    >
+      <!-- System Grid Background -->
+      <div class="absolute inset-0 system-grid opacity-20"></div>
+      <div class="container-custom text-white z-10 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                     <!-- Conteúdo Principal -->
+           <div class="space-y-8">
+             <div class="opacity-0 transform translate-y-10 transition-all duration-1000" data-scroll-animate>
+               <!-- Terminal Window -->
+               <div class="rounded-lg border shadow-2xl overflow-hidden mb-8" style="background-color: #000000; border-color: #404040;">
+                 <!-- Terminal Header -->
+                 <div class="px-4 py-3 flex items-center space-x-2 border-b" style="background-color: #1a1a1a; border-color: #404040;">
+                   <div class="flex space-x-2">
+                     <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                     <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                     <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                   </div>
+                   <div class="flex-1 text-center">
+                     <span class="text-sm font-medium" style="color: #9ca3af;">markdev@sistema ~ %</span>
+                   </div>
+                 </div>
+                 <!-- Terminal Content -->
+                 <div class="p-6">
+                   <div class="font-mono space-y-4">
+                     <div class="flex items-center space-x-2">
+                       <span style="color: #9ca3af;">$</span>
+                       <span style="color: #d1d5db;">echo</span>
+                       <span style="color: #e5e7eb;">"Initializing presentation..."</span>
+                     </div>
+                                           <div class="ml-4">
+                        <h2 class="text-4xl lg:text-5xl font-tech font-bold mb-4" style="color: #d1d5db;" id="typing-title">
+                          <!-- Conteúdo será inserido via JavaScript -->
+        </h2>
+                        <p class="text-lg lg:text-xl leading-relaxed" style="color: #9ca3af;" id="typing-subtitle">
+                          <!-- Conteúdo será inserido via JavaScript -->
+                        </p>
+                        <div class="mt-4">
+                          <span class="animate-pulse" style="color: #6b7280;" id="terminal-cursor">█</span>
+                        </div>
+                      </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+            
+                         <div class="space-y-6 text-lg opacity-0 transform translate-y-10 transition-all duration-1000 delay-300" data-scroll-animate style="color: #d1d5db; font-family: 'Space Grotesk', 'JetBrains Mono', monospace;">
+               <p>
+                 At <strong style="color: #e5e7eb; font-family: 'Orbitron', monospace; letter-spacing: 1px;">MARKDEV</strong>, we believe technology should be an ally for growth, not a barrier. Born from the vision of <strong style="color: #e5e7eb; font-family: 'Orbitron', monospace;">Marcelo de Barros</strong>, our company was founded on the desire to create digital solutions that have soul, identity, and above all, that work for people.
+               </p>
+               
+               <p>
+                 We are more than developers; we are your <strong style="color: #e5e7eb; font-family: 'Orbitron', monospace;">strategic partners</strong>. Our mission is to work side-by-side with you to build a strong and authentic digital presence, no matter the scale or scope of your project. From internal automation to public-facing solutions, we use cutting-edge technology and strategies designed exclusively for your goals. With <strong style="color: #e5e7eb; font-family: 'Orbitron', monospace; letter-spacing: 1px;">MARKDEV</strong>, your project comes to life and your brand grows stronger.
+               </p>
+              
+                                                           <div class="rounded-lg border shadow-2xl overflow-hidden" style="background-color: #000000; border-color: #404040;">
+                 <!-- Mac Window Header -->
+                 <div class="px-4 py-3 flex items-center space-x-2 border-b" style="background-color: #1a1a1a; border-color: #404040;">
+                   <div class="flex space-x-2">
+                     <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                     <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                     <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                   </div>
+                   <div class="flex-1 text-center">
+                     <span class="text-sm font-bold tracking-widest" style="color: #9ca3af; font-family: 'Orbitron', monospace;">OUR_SERVICES</span>
+                   </div>
+                 </div>
+                 <!-- Mac Window Content -->
+                 <div class="p-6">
+                   <ul class="space-y-4" style="font-family: 'Space Grotesk', monospace;">
+                     <li class="flex items-center">
+                       <span class="w-2 h-2 rounded-full mr-4" style="background-color: #9ca3af;"></span>
+                       <span style="color: #d1d5db;">→ Modern website creation <strong style="color: #e5e7eb; font-family: 'JetBrains Mono', monospace;">[OPTIONAL_CMS]</strong></span>
+                     </li>
+                     <li class="flex items-center">
+                       <span class="w-2 h-2 rounded-full mr-4" style="background-color: #9ca3af;"></span>
+                       <span style="color: #d1d5db;">→ <strong style="color: #e5e7eb; font-family: 'JetBrains Mono', monospace;">[SEO_WORDPRESS]</strong> optimization</span>
+                     </li>
+                     <li class="flex items-center">
+                       <span class="w-2 h-2 rounded-full mr-4" style="background-color: #9ca3af;"></span>
+                       <span style="color: #d1d5db;">→ <strong style="color: #e5e7eb; font-family: 'JetBrains Mono', monospace;">[BACKEND_SYSTEMS]</strong> development</span>
+                     </li>
+                     <li class="flex items-center">
+                       <span class="w-2 h-2 rounded-full mr-4" style="background-color: #9ca3af;"></span>
+                       <span style="color: #d1d5db;">→ <strong style="color: #e5e7eb; font-family: 'JetBrains Mono', monospace;">[DIGITAL_TRANSFORM]</strong> consulting</span>
+                     </li>
+                   </ul>
+                 </div>
+               </div>
+            </div>
+            
+                         <div class="opacity-0 transform translate-y-10 transition-all duration-1000 delay-600" data-scroll-animate>
+               <button id="hacker-button" class="relative group font-mono font-bold py-4 px-2 transition-all duration-300 hover:scale-105 cursor-pointer bg-transparent border-none outline-none" 
+                       style="color: #e5e7eb;">
+                 <!-- Frame invisível para manter o tamanho -->
+                 <span class="invisible tracking-wider">>>> MEET MARCELO</span>
+                 <!-- Texto visível -->
+                 <span id="button-text" class="absolute inset-0 flex items-center justify-start tracking-wider z-10">>>> MEET MARCELO</span>
+                 <!-- Cursor piscante -->
+                 <span id="terminal-cursor-btn" class="absolute top-4 left-auto ml-1 font-mono z-20 cursor-blink" style="color: #e5e7eb;">█</span>
+               </button>
+             </div>
+          </div>
+          
+          <!-- Estatísticas e Elementos Visuais -->
+          <div class="space-y-8">
+                         <div class="grid grid-cols-2 gap-6 opacity-0 transform translate-y-10 transition-all duration-1000 delay-400" data-scroll-animate>
+               <div class="rounded-lg border shadow-2xl overflow-hidden" style="background-color: #000000; border-color: #404040;">
+                 <div class="px-3 py-2 flex items-center space-x-1.5 border-b" style="background-color: #1a1a1a; border-color: #404040;">
+                   <div class="w-2.5 h-2.5 bg-red-500 rounded-full"></div>
+                   <div class="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
+                   <div class="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+                 </div>
+                 <div class="p-4 text-center">
+                   <div class="text-2xl font-bold mb-1" style="color: #e5e7eb; font-family: 'Orbitron', monospace;">Updating...</div>
+                   <div class="text-xs font-mono tracking-wider" style="color: #9ca3af;">PROJ_DELIVERED</div>
+                 </div>
+               </div>
+               <div class="rounded-lg border shadow-2xl overflow-hidden" style="background-color: #000000; border-color: #404040;">
+                 <div class="px-3 py-2 flex items-center space-x-1.5 border-b" style="background-color: #1a1a1a; border-color: #404040;">
+                   <div class="w-2.5 h-2.5 bg-red-500 rounded-full"></div>
+                   <div class="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
+                   <div class="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+                 </div>
+                 <div class="p-4 text-center">
+                   <div class="text-2xl font-bold mb-1" style="color: #e5e7eb; font-family: 'Orbitron', monospace;">5+</div>
+                   <div class="text-xs font-mono tracking-wider" style="color: #9ca3af;">YEARS_EXP</div>
+                 </div>
+               </div>
+               <div class="rounded-lg border shadow-2xl overflow-hidden" style="background-color: #000000; border-color: #404040;">
+                 <div class="px-3 py-2 flex items-center space-x-1.5 border-b" style="background-color: #1a1a1a; border-color: #404040;">
+                   <div class="w-2.5 h-2.5 bg-red-500 rounded-full"></div>
+                   <div class="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
+                   <div class="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+                 </div>
+                 <div class="p-4 text-center">
+                   <div class="text-2xl font-bold mb-1" style="color: #e5e7eb; font-family: 'Orbitron', monospace;">24/7</div>
+                   <div class="text-xs font-mono tracking-wider" style="color: #9ca3af;">SUPPORT_24H</div>
+                 </div>
+               </div>
+               <div class="rounded-lg border shadow-2xl overflow-hidden" style="background-color: #000000; border-color: #404040;">
+                 <div class="px-3 py-2 flex items-center space-x-1.5 border-b" style="background-color: #1a1a1a; border-color: #404040;">
+                   <div class="w-2.5 h-2.5 bg-red-500 rounded-full"></div>
+                   <div class="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
+                   <div class="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+                 </div>
+                 <div class="p-4 text-center">
+                   <div class="text-2xl font-bold mb-1" style="color: #e5e7eb; font-family: 'Orbitron', monospace;">100%</div>
+                   <div class="text-xs font-mono tracking-wider" style="color: #9ca3af;">SATISFACTION</div>
+                 </div>
+               </div>
+             </div>
+            
+                         <!-- Elementos Decorativos -->
+             <div class="relative opacity-0 transform translate-y-10 transition-all duration-1000 delay-800" data-scroll-animate>
+               <div class="rounded-lg border shadow-2xl overflow-hidden" style="background-color: #000000; border-color: #404040;">
+                 <!-- Mac Window Header -->
+                 <div class="px-4 py-3 flex items-center space-x-2 border-b" style="background-color: #1a1a1a; border-color: #404040;">
+                   <div class="flex space-x-2">
+                     <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                     <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                     <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                   </div>
+                   <div class="flex-1 text-center">
+                     <span class="text-sm font-bold tracking-widest" style="color: #9ca3af; font-family: 'Orbitron', monospace;">OUR_VISION</span>
+                   </div>
+                 </div>
+                 <!-- Mac Window Content -->
+                 <div class="p-6">
+                   <p class="leading-relaxed" style="color: #d1d5db; font-family: 'Space Grotesk', monospace;">
+                     → To be the benchmark in creating <strong style="color: #e5e7eb; font-family: 'JetBrains Mono', monospace;">[DIGITAL_EXPERIENCES]</strong> with soul and intelligence, recognized for turning our clients' vision into <strong style="color: #e5e7eb; font-family: 'JetBrains Mono', monospace;">[MARKET_LEADING_RESULTS]</strong>.
+                   </p>
+                 </div>
+               </div>
+             </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Elementos decorativos -->
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-20 left-10 w-32 h-32 border border-gray-600 rounded-full opacity-20 animate-spin-slow"></div>
+        <div class="absolute bottom-20 right-10 w-24 h-24 border border-gray-500 rounded-full opacity-30 animate-pulse"></div>
+        <div class="absolute top-1/2 right-1/4 w-16 h-16 border border-gray-600 rounded-full opacity-10 animate-bounce"></div>
+      </div>
+    </section>
+    
+    <section 
+      id="section-2" 
+      class="min-h-screen flex items-center justify-center relative overflow-hidden scroll-section snap-section"
+      style="background-color: #1a1a1a;"
+    >
+      <div class="container-custom text-center text-white z-10 relative">
+        <h2 class="text-6xl font-tech font-bold mb-6 opacity-0 transform translate-y-10 transition-all duration-1000" data-scroll-animate>
+          Section 2
+        </h2>
+        <p class="text-xl text-gray-300 opacity-0 transform translate-y-10 transition-all duration-1000 delay-300" data-scroll-animate>
+          Another section with different animations
+        </p>
+      </div>
+    </section>
+    
+    <section 
+      id="section-3" 
+      class="min-h-screen flex items-center justify-center relative overflow-hidden scroll-section snap-section"
+      style="background-color: #000000;"
+    >
+      <RetrowaveBackgroundV2 />
+      <WindowsXPMainWindow />
+      <WindowsXPProfile />
+      <div class="container-custom text-center text-white z-10 relative">
+        <h2 class="text-6xl font-tech font-bold mb-6 opacity-0 transform translate-y-10 transition-all duration-1000" data-scroll-animate>
+          About Me
+        </h2>
+      </div>
+      
+      <!-- Avatar com balão de mensagem -->
+      <div class="avatar-message-container" id="avatar-notification">
+        <div class="avatar-circle">
+          <img src="/images/Marcelo_3D.jpeg" alt="Marcelo 3D" class="avatar-image" />
+        </div>
+        <div class="message-balloon">
+          <p class="message-text">Marcelo is now online. Send a message!</p>
+        </div>
+      </div>
+      
+      <!-- Barra de serviços marquee -->
+      <div class="services-marquee-container">
+        <div class="services-marquee">
+          <div class="services-content">
+            <span>Website & Web Application Development</span>
+            <span class="separator">*</span>
+            <span>Specialized WordPress Development</span>
+            <span class="separator">*</span>
+            <span>Web Systems & Process Automation</span>
+            <span class="separator">*</span>
+            <span>Strategy & Optimization</span>
+            <span class="separator">*</span>
+            <span>Search Engine Optimization (SEO)</span>
+            <span class="separator">*</span>
+            <span>Digital Presence Strategy</span>
+            <span class="separator">*</span>
+            <span>Infrastructure & Technology</span>
+            <span class="separator">*</span>
+          </div>
+          <div class="services-content" aria-hidden="true">
+            <span>Website & Web Application Development</span>
+            <span class="separator">*</span>
+            <span>Specialized WordPress Development</span>
+            <span class="separator">*</span>
+            <span>Web Systems & Process Automation</span>
+            <span class="separator">*</span>
+            <span>Strategy & Optimization</span>
+            <span class="separator">*</span>
+            <span>Search Engine Optimization (SEO)</span>
+            <span class="separator">*</span>
+            <span>Digital Presence Strategy</span>
+            <span class="separator">*</span>
+            <span>Infrastructure & Technology</span>
+            <span class="separator">*</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* Animações customizadas para o scroll */
+  .scroll-section {
+    transition: all 0.6s ease;
+  }
+  
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Animação do cursor terminal */
+  .cursor-blink {
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  
+  /* Estados de animação */
+  [data-scroll-animate].animate-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+  
+  /* System Grid Background */
+  .system-background {
+    position: relative;
+  }
+  
+  .system-grid {
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(rgba(255, 255, 255, 0.005) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.005) 1px, transparent 1px);
+    background-size: 
+      80px 80px,
+      80px 80px,
+      20px 20px,
+      20px 20px;
+    background-position: 
+      0 0,
+      0 0,
+      0 0,
+      0 0;
+    animation: systemPulse 10s ease-in-out infinite;
+  }
+  
+  .system-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.01) 2px, transparent 2px);
+    background-size: 160px 160px;
+    background-position: 0 0;
+    animation: systemRotate 20s linear infinite;
+  }
+  
+  .system-grid::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.3) 100%);
+    pointer-events: none;
+  }
+  
+  @keyframes systemPulse {
+    0%, 100% { 
+      opacity: 0.15;
+      transform: scale(1);
+    }
+    50% { 
+      opacity: 0.25;
+      transform: scale(1.02);
+    }
+  }
+  
+  @keyframes systemRotate {
+    0% { 
+      transform: rotate(0deg);
+    }
+    100% { 
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Avatar com balão de mensagem */
+  .avatar-message-container {
+    position: absolute;
+    bottom: 80px;
+    left: 30px;
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    z-index: 200;
+    pointer-events: auto;
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .avatar-message-container.show {
+    opacity: 0.9;
+    transform: translateX(0);
+  }
+  
+  .avatar-circle {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+  }
+  
+  .avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+
+  
+  .message-balloon {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    padding: 12px 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    max-width: 240px;
+    position: relative;
+    margin-bottom: 8px;
+    backdrop-filter: blur(10px);
+  }
+  
+  .message-text {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.3;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+
+  
+  /* Responsividade para o avatar */
+  @media (max-width: 1024px) {
+    .avatar-message-container {
+      bottom: 70px;
+      left: 20px;
+    }
+    
+    .avatar-circle {
+      width: 45px;
+      height: 45px;
+    }
+    
+    .message-balloon {
+      max-width: 200px;
+      padding: 10px 14px;
+    }
+    
+    .message-text {
+      font-size: 11px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .avatar-message-container {
+      bottom: 70px;
+      left: 15px;
+      position: absolute;
+    }
+    
+    .avatar-circle {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .message-balloon {
+      max-width: 180px;
+      padding: 8px 12px;
+    }
+    
+    .message-text {
+      font-size: 10px;
+    }
+  }
+  
+  /* Barra de serviços marquee */
+  .services-marquee-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    z-index: 150;
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(10px);
+  }
+  
+  .services-marquee {
+    display: flex;
+    width: 200%;
+    animation: marqueeScroll 35s linear infinite;
+  }
+  
+  .services-content {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    white-space: nowrap;
+    min-width: 100%;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(240, 240, 240, 0.9);
+    padding: 0 20px;
+  }
+  
+  .services-content span {
+    text-transform: none;
+    letter-spacing: 0.5px;
+  }
+  
+  .separator {
+    color: rgba(220, 220, 220, 0.7) !important;
+    font-weight: normal !important;
+    font-size: 14px !important;
+  }
+  
+  @keyframes marqueeScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* Efeito de fade nas bordas */
+  .services-marquee-container::before,
+  .services-marquee-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 160;
+    pointer-events: none;
+  }
+  
+  .services-marquee-container::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.25), transparent);
+  }
+  
+  .services-marquee-container::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.25), transparent);
+  }
+  
+  /* Responsividade para o marquee */
+  @media (max-width: 768px) {
+    .services-marquee-container {
+      height: 45px;
+    }
+    
+    .services-content {
+      font-size: 11px;
+      gap: 12px;
+      padding: 0 15px;
+    }
+    
+    .separator {
+      font-size: 12px !important;
+    }
+    
+    .services-marquee {
+      animation: marqueeScroll 30s linear infinite;
+    }
+  }
+
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Sistema de animação sensível ao scroll
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.3
+    };
+    
+    // Função para animação de digitação
+    function typeWriter(element, text, speed = 100, isHTML = false) {
+      return new Promise((resolve) => {
+        element.innerHTML = '';
+        let i = 0;
+        
+        if (isHTML) {
+          // Para HTML, vamos digitar letra por letra mas manter as tags
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = text;
+          const plainText = tempDiv.textContent || tempDiv.innerText || '';
+          
+          const timer = setInterval(() => {
+                         if (i < plainText.length) {
+               const currentText = plainText.substring(0, i + 1);
+               if (currentText.includes('MARKDEV')) {
+                 const beforeMarkdev = currentText.substring(0, currentText.indexOf('MARKDEV'));
+                 const markdevPart = currentText.substring(currentText.indexOf('MARKDEV'));
+                 element.innerHTML = beforeMarkdev + '<span style="background: linear-gradient(to right, #f3f4f6, #9ca3af); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">' + markdevPart + '</span>';
+               } else {
+                 element.textContent = currentText;
+               }
+               i++;
+             } else {
+              element.innerHTML = text;
+              clearInterval(timer);
+              resolve();
+            }
+          }, speed);
+        } else {
+          const timer = setInterval(() => {
+            if (i < text.length) {
+              element.innerHTML += text.charAt(i);
+              i++;
+            } else {
+              clearInterval(timer);
+              resolve();
+            }
+          }, speed);
+        }
+      });
+    }
+    
+    // Função para iniciar animação de digitação do terminal
+    async function startTerminalAnimation() {
+      const titleElement = document.getElementById('typing-title');
+      const subtitleElement = document.getElementById('typing-subtitle');
+      const cursor = document.getElementById('terminal-cursor');
+      
+      if (titleElement && subtitleElement && cursor) {
+                 const titleText = 'About <span style="background: linear-gradient(to right, #f3f4f6, #9ca3af); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">MARKDEV</span>';
+         const subtitleText = 'Technology with a <strong style="color: #e5e7eb;">Human Touch</strong>';
+        
+        // Aguardar um pouco antes de começar
+        await new Promise(resolve => setTimeout(resolve, 800));
+        
+        // Digitar o título
+        await typeWriter(titleElement, titleText, 80, true);
+        
+        // Aguardar um pouco antes do subtítulo
+        await new Promise(resolve => setTimeout(resolve, 300));
+        
+        // Digitar o subtítulo
+        await typeWriter(subtitleElement, subtitleText, 60, true);
+        
+        // Esconder o cursor após terminar
+        setTimeout(() => {
+          cursor.style.display = 'none';
+        }, 1000);
+      }
+    }
+    
+    const scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Animar elementos dentro da seção
+          const animateElements = entry.target.querySelectorAll('[data-scroll-animate]');
+          animateElements.forEach((element, index) => {
+            setTimeout(() => {
+              element.classList.add('animate-in');
+              
+              // Se for a seção sobre, iniciar animação de digitação
+              if (entry.target.id === 'about' && index === 0) {
+                setTimeout(() => {
+                  startTerminalAnimation();
+                }, 500);
+              }
+            }, index * 200);
+          });
+        }
+      });
+    }, observerOptions);
+    
+    // Observar todas as seções
+    const sections = document.querySelectorAll('.scroll-section');
+    sections.forEach((section) => {
+      scrollObserver.observe(section);
+    });
+    
+        // Efeito de scramble no botão hacker
+    const hackerButton = document.getElementById('hacker-button');
+    const buttonText = document.getElementById('button-text');
+    const terminalCursor = document.getElementById('terminal-cursor-btn');
+    
+    if (hackerButton && buttonText && terminalCursor) {
+      const originalText = '>>> MEET MARCELO';
+      const hackerText = '>>> MEET MARKDEV';
+      const characters = '!@#$%^&*()_+-=[]{}|;:,.<>?~`0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+      let isAnimating = false;
+      
+      // Função para posicionar o cursor após o texto
+      const updateCursorPosition = () => {
+        const textWidth = buttonText.scrollWidth;
+        terminalCursor.style.left = `${textWidth + 8}px`;
+      };
+      
+      // Posicionar cursor inicialmente
+      updateCursorPosition();
+      
+      const scrambleText = (finalText, callback) => {
+        const maxLength = Math.max(originalText.length, finalText.length);
+        let frame = 0;
+        const maxFrames = 15;
+        
+        const animate = () => {
+          let scrambled = '';
+          
+          for (let i = 0; i < maxLength; i++) {
+            if (frame > i) {
+              // Revelar o caractere final
+              scrambled += finalText[i] || '';
+            } else {
+              // Scramble character
+              scrambled += characters[Math.floor(Math.random() * characters.length)];
+            }
+          }
+          
+          buttonText.textContent = scrambled;
+          updateCursorPosition();
+          
+          if (frame < maxFrames) {
+            frame++;
+            setTimeout(animate, 50);
+          } else {
+            buttonText.textContent = finalText;
+            updateCursorPosition();
+            if (callback) callback();
+          }
+        };
+        
+        animate();
+      };
+      
+      hackerButton.addEventListener('mouseenter', () => {
+        if (!isAnimating) {
+          isAnimating = true;
+          // Primeiro scramble para MARKDEV
+          scrambleText(hackerText, () => {
+            // Aguardar 500ms (meio segundo) e então scramble de volta para MARCELO
+            setTimeout(() => {
+              scrambleText(originalText, () => {
+                isAnimating = false;
+              });
+            }, 500);
+          });
+        }
+      });
+      
+      // Atualizar posição do cursor quando a janela redimensiona
+      window.addEventListener('resize', updateCursorPosition);
+    }
+    
+    // Controle do avatar com delay
+    const avatarNotification = document.getElementById('avatar-notification');
+    let avatarTimer = null;
+    let hasShownAvatar = false;
+    
+    if (avatarNotification) {
+      const avatarObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasShownAvatar) {
+            // Pessoa entrou na seção About Me, iniciar timer de 3 segundos
+            avatarTimer = setTimeout(() => {
+              avatarNotification.classList.add('show');
+              hasShownAvatar = true;
+            }, 3000);
+          } else if (!entry.isIntersecting && avatarTimer) {
+            // Pessoa saiu da seção antes dos 3 segundos, cancelar timer
+            clearTimeout(avatarTimer);
+            avatarTimer = null;
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5 // 50% da seção deve estar visível
+      });
+      
+      // Observar a seção About Me (section-3)
+      const aboutMeSection = document.getElementById('section-3');
+      if (aboutMeSection) {
+        avatarObserver.observe(aboutMeSection);
+      }
+    }
+  });
+</script> 

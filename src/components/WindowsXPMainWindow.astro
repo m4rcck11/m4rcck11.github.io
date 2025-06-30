@@ -1,0 +1,467 @@
+<!-- Windows XP Main Window with Tabs -->
+<div class="winxp-main-container">
+  <div class="winxp-main-window">
+    <!-- Windows XP Title Bar -->
+    <div class="winxp-main-titlebar">
+      <div class="winxp-main-title">
+        <div class="winxp-main-icon">
+          <div class="winxp-main-icon-squares">
+            <div class="icon-square"></div>
+            <div class="icon-square"></div>
+            <div class="icon-square"></div>
+            <div class="icon-square"></div>
+          </div>
+        </div>
+        <span class="winxp-main-title-text">MARKDEV - Information</span>
+      </div>
+      <div class="winxp-main-controls">
+        <button class="winxp-main-btn winxp-minimize">_</button>
+        <button class="winxp-main-btn winxp-maximize">□</button>
+        <button class="winxp-main-btn winxp-close">×</button>
+      </div>
+    </div>
+    
+    <!-- Windows XP Menu Bar -->
+    <div class="winxp-main-menubar">
+      <span class="winxp-main-menu-item">File</span>
+      <span class="winxp-main-menu-item">Edit</span>
+      <span class="winxp-main-menu-item">View</span>
+      <span class="winxp-main-menu-item">Tools</span>
+      <span class="winxp-main-menu-item">Help</span>
+    </div>
+    
+    <!-- Tab Navigation -->
+    <div class="winxp-tab-container">
+      <div class="winxp-tab-navigation">
+        <button class="winxp-tab active" data-tab="sobre">About</button>
+        <button class="winxp-tab" data-tab="projetos">Projects</button>
+        <button class="winxp-tab" data-tab="comunidade">Community</button>
+      </div>
+    </div>
+    
+    <!-- Content Area -->
+    <div class="winxp-main-content">
+      <!-- Aba Sobre -->
+      <div id="sobre" class="tab-content active">
+        <div class="content-section">
+          <h2 class="section-title">About Marcelo de Barros</h2>
+          
+          <div class="about-layout">
+            <div class="about-text">
+              <div class="info-block">
+                <h3>My Story</h3>
+                <p>
+                  Technology has always been a part of my life, so diving into the world of computing felt very natural. From a young age, my instinct has been to find creative ways to solve problems—whether they were for me, my family, my job, or any other tech challenge that came up.
+                </p>
+                <p>
+                  Early in my programming career, I noticed that many digital solutions felt impersonal and lacked a unique identity. That's what motivated me to go the extra mile, delivering systems that are not only fast and secure but also truly reflect each client's style.
+                </p>
+              </div>
+              
+              <div class="info-block">
+                <h3>Current Focus</h3>
+                <p>
+                  I'm currently a student of Systems Analysis and Development, always seeking to deepen my knowledge through courses and self-study. My focus is on creating complete digital solutions, such as management systems, websites, and e-commerce platforms.
+                </p>
+                <p>
+                  Leading MARKDEV, a company I founded, I bring with me over 10 years of professional experience, the last three of which have been exclusively dedicated to developing different kinds of systems, websites, e-commerce, and even games.
+                </p>
+              </div>
+              
+              <div class="info-block">
+                <h3>Technical Specialties</h3>
+                <div class="tech-grid">
+                  <div class="tech-item">
+                    <span class="tech-category">Frontend:</span>
+                    <span class="tech-list">Javascript, CSS, React.</span>
+                  </div>
+                  <div class="tech-item">
+                    <span class="tech-category">Backend:</span>
+                    <span class="tech-list">Python, Django, C#, PostgreSQL.</span>
+                  </div>
+                  <div class="tech-item">
+                    <span class="tech-category">Cloud:</span>
+                    <span class="tech-list">Docker, AWS.</span>
+                  </div>
+                  <div class="tech-item">
+                    <span class="tech-category">Mobile:</span>
+                    <span class="tech-list">Flutter, React Native.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="about-stats" style="display: none;">
+              <div class="stat-card">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Projects Delivered</div>
+              </div>
+              
+              <div class="stat-card">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Years of Experience</div>
+              </div>
+              
+              <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Satisfied Clients</div>
+              </div>
+              
+              <div class="stat-card">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Mastered Technologies</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Aba Projetos -->
+      <div id="projetos" class="tab-content">
+        <div class="content-section">
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="coming-soon">Content in development...</p>
+        </div>
+      </div>
+      
+      <!-- Aba Comunidade -->
+      <div id="comunidade" class="tab-content">
+        <div class="content-section">
+          <h2 class="section-title">Community & Networking</h2>
+          <p class="coming-soon">Content in development...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.winxp-tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remove active class from all tabs and contents
+        tabs.forEach(t => t.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+        
+        // Add active class to clicked tab
+        tab.classList.add('active');
+        
+        // Show corresponding content
+        const targetTab = tab.getAttribute('data-tab');
+        const targetContent = document.getElementById(targetTab);
+        if (targetContent) {
+          targetContent.classList.add('active');
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .winxp-main-container {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    width: 900px;
+    z-index: 100;
+  }
+  
+  .winxp-main-window {
+    background: #2a2a2a;
+    border: 2px outset #404040;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+    font-family: 'Tahoma', sans-serif;
+    font-size: 14px;
+  }
+  
+  /* Windows XP Title Bar */
+  .winxp-main-titlebar {
+    background: linear-gradient(to bottom, #1a1a1a, #111111 50%, #0a0a0a 50%, #000000);
+    border-bottom: 1px solid #333333;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px;
+  }
+  
+  .winxp-main-title {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .winxp-main-icon {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .winxp-main-icon-squares {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1px;
+    width: 12px;
+    height: 12px;
+  }
+  
+  .winxp-main-title-text {
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+  }
+  
+  .winxp-main-controls {
+    display: flex;
+    gap: 2px;
+  }
+  
+  .winxp-main-btn {
+    width: 18px;
+    height: 16px;
+    border: 1px outset #404040;
+    background: #2a2a2a;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #cccccc;
+  }
+  
+  .winxp-main-btn:hover {
+    background: #1a1a1a;
+  }
+  
+  .winxp-main-btn:active {
+    border: 1px inset #404040;
+  }
+  
+  .winxp-close {
+    color: #ff0000 !important;
+  }
+  
+  .winxp-close:hover {
+    background: #ff3333;
+    color: #ffffff;
+  }
+  
+  /* Menu Bar */
+  .winxp-main-menubar {
+    background: #2a2a2a;
+    border-bottom: 1px solid #404040;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    gap: 14px;
+  }
+  
+  .winxp-main-menu-item {
+    color: #cccccc;
+    font-size: 14px;
+    padding: 4px 10px;
+    cursor: pointer;
+  }
+  
+  .winxp-main-menu-item:hover {
+    background: #1a1a1a;
+    color: #ffffff;
+  }
+  
+  /* Tab Navigation */
+  .winxp-tab-container {
+    background: #2a2a2a;
+    border-bottom: 1px solid #404040;
+    padding: 0 6px;
+  }
+  
+  .winxp-tab-navigation {
+    display: flex;
+    gap: 2px;
+  }
+  
+  .winxp-tab {
+    background: #1a1a1a;
+    border: 1px solid #404040;
+    border-bottom: none;
+    padding: 8px 16px;
+    font-size: 13px;
+    color: #cccccc;
+    cursor: pointer;
+    font-family: 'Tahoma', sans-serif;
+    transition: all 0.2s ease;
+    border-radius: 4px 4px 0 0;
+  }
+  
+  .winxp-tab:hover {
+    background: #0a0a0a;
+    color: #ffffff;
+  }
+  
+  .winxp-tab.active {
+    background: #2a2a2a;
+    color: #ffffff;
+    border-bottom: 1px solid #2a2a2a;
+    margin-bottom: -1px;
+  }
+  
+  /* Content Area */
+  .winxp-main-content {
+    background: #2a2a2a;
+    padding: 24px;
+    min-height: 550px;
+    max-height: 550px;
+    overflow-y: auto;
+  }
+  
+  .tab-content {
+    display: none;
+  }
+  
+  .tab-content.active {
+    display: block;
+  }
+  
+  .content-section {
+    color: #cccccc;
+  }
+  
+  .section-title {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-bottom: 2px solid #404040;
+    padding-bottom: 8px;
+  }
+  
+  /* About Page Styles */
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .info-block {
+    margin-bottom: 24px;
+  }
+  
+  .info-block h3 {
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .info-block p {
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  
+  .tech-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .tech-item {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .tech-category {
+    color: #ffffff;
+    font-weight: bold;
+    min-width: 80px;
+  }
+  
+  .tech-list {
+    color: #cccccc;
+  }
+  
+  .about-stats {
+    display: none;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .stat-card {
+    background: #1a1a1a;
+    border: 1px solid #404040;
+    padding: 16px;
+    text-align: center;
+    border-radius: 4px;
+  }
+  
+  .stat-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+  
+  .stat-label {
+    font-size: 12px;
+    color: #cccccc;
+  }
+  
+  .coming-soon {
+    text-align: center;
+    font-style: italic;
+    color: #999999;
+    padding: 40px;
+  }
+  
+
+  
+  /* Scrollbar personalizada */
+  .winxp-main-content::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .winxp-main-content::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 3px;
+  }
+  
+  .winxp-main-content::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 3px;
+  }
+  
+  .winxp-main-content::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 1600px) {
+    .winxp-main-container {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .winxp-main-container {
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
+      width: 100%;
+      max-width: 700px;
+      margin: 20px auto;
+    }
+    
+    .about-layout {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+</style> 

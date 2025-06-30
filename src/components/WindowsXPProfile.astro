@@ -1,0 +1,475 @@
+<!-- Windows XP Profile Window -->
+<div class="winxp-profile-container">
+  <div class="winxp-window">
+    <!-- Windows XP Title Bar -->
+    <div class="winxp-titlebar">
+      <div class="winxp-title">
+        <div class="winxp-icon">
+          <div class="winxp-icon-squares">
+            <div class="icon-square"></div>
+            <div class="icon-square"></div>
+            <div class="icon-square"></div>
+            <div class="icon-square"></div>
+          </div>
+        </div>
+        <span class="winxp-title-text">User Profile</span>
+      </div>
+      <div class="winxp-controls">
+        <button class="winxp-btn winxp-minimize">_</button>
+        <button class="winxp-btn winxp-maximize">□</button>
+        <button class="winxp-btn winxp-close">×</button>
+      </div>
+    </div>
+    
+    <!-- Windows XP Menu Bar -->
+    <div class="winxp-menubar">
+      <span class="winxp-menu-item">File</span>
+      <span class="winxp-menu-item">Edit</span>
+      <span class="winxp-menu-item">View</span>
+      <span class="winxp-menu-item">Help</span>
+    </div>
+    
+    <!-- Profile Content Area -->
+    <div class="winxp-content">
+      <!-- Profile Picture Section -->
+      <div class="profile-picture-section">
+        <div class="profile-picture-wrapper">
+          <div class="profile-picture-container">
+            <img 
+              src="/images/marcel.jpeg" 
+              alt="Marcelo de Barros" 
+              class="winxp-profile-picture profile-picture-normal"
+            />
+            <img 
+              src="/images/Marcelo_3D.jpeg" 
+              alt="Marcelo de Barros 3D" 
+              class="winxp-profile-picture profile-picture-3d"
+            />
+          </div>
+        </div>
+      </div>
+      
+      <!-- Profile Information -->
+      <div class="profile-info-section">
+        <div class="info-group">
+          <label class="winxp-label">Name:</label>
+          <div class="winxp-textbox">Marcelo de Barros</div>
+        </div>
+        
+        <div class="info-group">
+          <label class="winxp-label">Role:</label>
+          <div class="winxp-textbox">Full Stack Developer</div>
+        </div>
+        
+        <div class="info-group">
+          <label class="winxp-label">Education:</label>
+          <div class="winxp-textbox">Analysis and Systems Development</div>
+        </div>
+        
+        <div class="info-group">
+          <label class="winxp-label">Company:</label>
+          <div class="winxp-textbox">MARKDEV - Digital Solutions</div>
+        </div>
+        
+        <div class="info-group">
+          <label class="winxp-label">Location:</label>
+          <div class="winxp-textbox">Brazil</div>
+        </div>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="winxp-buttons-section">
+        <button class="winxp-flat-btn">Save</button>
+        <button class="winxp-flat-btn">Cancel</button>
+        <button class="winxp-flat-btn">Apply</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .winxp-profile-container {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    width: 816px;
+    z-index: 100;
+  }
+  
+  .winxp-window {
+    background: #2a2a2a;
+    border: 2px outset #404040;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+    font-family: 'Tahoma', sans-serif;
+    font-size: 14px;
+  }
+  
+  /* Windows XP Title Bar */
+  .winxp-titlebar {
+    background: linear-gradient(to bottom, #1a1a1a, #111111 50%, #0a0a0a 50%, #000000);
+    border-bottom: 1px solid #333333;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px;
+  }
+  
+  .winxp-title {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .winxp-icon {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .winxp-icon-squares {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1px;
+    width: 12px;
+    height: 12px;
+  }
+  
+  .icon-square {
+    background: #ffffff;
+    width: 5px;
+    height: 5px;
+  }
+  
+  .winxp-title-text {
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+  }
+  
+  .winxp-controls {
+    display: flex;
+    gap: 2px;
+  }
+  
+  .winxp-btn {
+    width: 18px;
+    height: 16px;
+    border: 1px outset #404040;
+    background: #2a2a2a;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #cccccc;
+  }
+  
+  .winxp-btn:hover {
+    background: #1a1a1a;
+  }
+  
+  .winxp-btn:active {
+    border: 1px inset #404040;
+  }
+  
+  .winxp-close {
+    color: #ff0000 !important;
+  }
+  
+  .winxp-close:hover {
+    background: #ff3333;
+    color: #ffffff;
+  }
+  
+  /* Menu Bar */
+  .winxp-menubar {
+    background: #2a2a2a;
+    border-bottom: 1px solid #404040;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    gap: 14px;
+  }
+  
+  .winxp-menu-item {
+    color: #cccccc;
+    font-size: 14px;
+    padding: 4px 10px;
+    cursor: pointer;
+  }
+  
+  .winxp-menu-item:hover {
+    background: #1a1a1a;
+    color: #ffffff;
+  }
+  
+  /* Content Area */
+  .winxp-content {
+    background: #2a2a2a;
+    padding: 30px;
+    min-height: 600px;
+  }
+  
+  .profile-picture-section {
+    text-align: center;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #404040;
+  }
+  
+  .profile-picture-wrapper {
+    margin-bottom: 16px;
+  }
+  
+  .profile-picture-container {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    cursor: pointer;
+  }
+  
+  .winxp-profile-picture {
+    width: 140px;
+    height: 140px;
+    border: 2px inset #404040;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .profile-picture-normal {
+    opacity: 1;
+    z-index: 2;
+  }
+  
+  .profile-picture-3d {
+    opacity: 0;
+    z-index: 1;
+  }
+  
+  /* Efeito de Glitch no Hover */
+  .profile-picture-container:hover .profile-picture-normal {
+    opacity: 0;
+    animation: glitch-out 0.6s ease-in-out;
+  }
+  
+  .profile-picture-container:hover .profile-picture-3d {
+    opacity: 1;
+    animation: glitch-in 0.6s ease-in-out;
+  }
+  
+  @keyframes glitch-out {
+    0% {
+      opacity: 1;
+      transform: translate(0, 0);
+      filter: hue-rotate(0deg);
+    }
+    10% {
+      transform: translate(-2px, 1px);
+      filter: hue-rotate(90deg);
+    }
+    20% {
+      transform: translate(2px, -1px);
+      filter: hue-rotate(180deg);
+    }
+    30% {
+      transform: translate(-1px, 2px);
+      filter: hue-rotate(270deg);
+    }
+    40% {
+      transform: translate(1px, -2px);
+      filter: hue-rotate(360deg);
+    }
+    50% {
+      transform: translate(-2px, 1px);
+      opacity: 0.8;
+      filter: contrast(150%) brightness(120%);
+    }
+    60% {
+      transform: translate(2px, -1px);
+      opacity: 0.6;
+      filter: contrast(200%) brightness(80%);
+    }
+    70% {
+      transform: translate(-1px, 2px);
+      opacity: 0.4;
+    }
+    80% {
+      transform: translate(1px, -1px);
+      opacity: 0.2;
+    }
+    90% {
+      transform: translate(-1px, 1px);
+      opacity: 0.1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(0, 0);
+    }
+  }
+  
+  @keyframes glitch-in {
+    0% {
+      opacity: 0;
+      transform: translate(0, 0);
+      filter: hue-rotate(0deg) contrast(200%);
+    }
+    10% {
+      transform: translate(2px, -1px);
+      filter: hue-rotate(90deg) contrast(180%);
+      opacity: 0.1;
+    }
+    20% {
+      transform: translate(-2px, 1px);
+      filter: hue-rotate(180deg) contrast(160%);
+      opacity: 0.2;
+    }
+    30% {
+      transform: translate(1px, -2px);
+      filter: hue-rotate(270deg) contrast(140%);
+      opacity: 0.4;
+    }
+    40% {
+      transform: translate(-1px, 2px);
+      filter: hue-rotate(360deg) contrast(120%);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translate(2px, -1px);
+      opacity: 0.8;
+      filter: contrast(110%) brightness(110%);
+    }
+    60% {
+      transform: translate(-1px, 1px);
+      filter: contrast(105%) brightness(105%);
+    }
+    70% {
+      transform: translate(1px, -1px);
+      filter: contrast(102%) brightness(102%);
+    }
+    80% {
+      transform: translate(-1px, 0px);
+      filter: contrast(101%) brightness(101%);
+    }
+    90% {
+      transform: translate(1px, 0px);
+      filter: contrast(100%) brightness(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, 0);
+      filter: none;
+    }
+  }
+  
+  /* Efeito de scan lines sutil */
+  .profile-picture-container:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.03) 2px,
+      rgba(255, 255, 255, 0.03) 4px
+    );
+    z-index: 3;
+    pointer-events: none;
+    animation: scan-lines 0.6s ease-in-out;
+  }
+  
+  @keyframes scan-lines {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  .profile-info-section {
+    margin-bottom: 32px;
+  }
+  
+  .info-group {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .winxp-label {
+    color: #cccccc;
+    font-weight: bold;
+    width: 120px;
+    font-size: 14px;
+  }
+  
+  .winxp-textbox {
+    flex: 1;
+    background: #1a1a1a;
+    border: 1px inset #404040;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #cccccc;
+    font-family: 'Tahoma', sans-serif;
+  }
+  
+  .winxp-buttons-section {
+    text-align: right;
+    border-top: 1px solid #404040;
+    padding-top: 20px;
+    display: flex;
+    gap: 14px;
+    justify-content: flex-end;
+  }
+  
+  /* Flat Design Buttons */
+  .winxp-flat-btn {
+    background: #1a1a1a;
+    border: 1px solid #404040;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-family: 'Tahoma', sans-serif;
+    color: #cccccc;
+    cursor: pointer;
+    transition: all 0.1s ease;
+  }
+  
+  .winxp-flat-btn:hover {
+    background: #0a0a0a;
+    border-color: #333333;
+  }
+  
+  .winxp-flat-btn:active {
+    background: #000000;
+    border: 1px inset #333333;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 1600px) {
+    .winxp-profile-container {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .winxp-profile-container {
+      position: relative;
+      top: auto;
+      right: auto;
+      transform: none;
+      width: 100%;
+      max-width: 816px;
+      margin: 20px auto;
+    }
+  }
+</style> 
