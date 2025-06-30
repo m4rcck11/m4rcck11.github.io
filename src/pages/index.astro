@@ -18,7 +18,7 @@ import '../styles/global.css';
     
     <!-- Seções de conteúdo -->
     <section 
-      id="about" 
+      id="about-markdev" 
       class="min-h-screen flex items-center justify-center relative overflow-hidden scroll-section snap-section system-background"
       style="background-color: #000000;"
     >
@@ -208,22 +208,22 @@ import '../styles/global.css';
     </section>
     
     <section 
-      id="section-2" 
+      id="services" 
       class="min-h-screen flex items-center justify-center relative overflow-hidden scroll-section snap-section"
       style="background-color: #1a1a1a;"
     >
       <div class="container-custom text-center text-white z-10 relative">
         <h2 class="text-6xl font-tech font-bold mb-6 opacity-0 transform translate-y-10 transition-all duration-1000" data-scroll-animate>
-          Section 2
+          Services
         </h2>
         <p class="text-xl text-gray-300 opacity-0 transform translate-y-10 transition-all duration-1000 delay-300" data-scroll-animate>
-          Another section with different animations
+          Our professional services for your digital needs
         </p>
       </div>
     </section>
     
     <section 
-      id="section-3" 
+      id="about-me" 
       class="min-h-screen flex items-center justify-center relative overflow-hidden scroll-section snap-section"
       style="background-color: #000000;"
     >
@@ -686,7 +686,7 @@ import '../styles/global.css';
               element.classList.add('animate-in');
               
               // Se for a seção sobre, iniciar animação de digitação
-              if (entry.target.id === 'about' && index === 0) {
+              if (entry.target.id === 'about-markdev' && index === 0) {
                 setTimeout(() => {
                   startTerminalAnimation();
                 }, 500);
@@ -803,7 +803,7 @@ import '../styles/global.css';
       });
       
       // Observar a seção About Me (section-3)
-      const aboutMeSection = document.getElementById('section-3');
+      const aboutMeSection = document.getElementById('about-me');
       if (aboutMeSection) {
         avatarObserver.observe(aboutMeSection);
       }

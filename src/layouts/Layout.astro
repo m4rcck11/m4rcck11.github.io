@@ -34,24 +34,11 @@ const { title, description = "MARKDEV - Criando soluções digitais inovadoras" 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" is:inline></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js" is:inline></script>
   </head>
-  <body class="bg-gray-50 dark:bg-custom-dark text-gray-900 dark:text-gray-100 transition-colors duration-300" style="background-color: #242323;">
+  <body class="bg-gray-50 text-gray-900 transition-colors duration-300" style="background-color: #242323;">
     <slot />
     
     <!-- Scripts para funcionalidades interativas -->
     <script>
-      // Theme toggle functionality
-      const initTheme = () => {
-        const theme = localStorage.getItem('theme') || 'light';
-        document.documentElement.classList.toggle('dark', theme === 'dark');
-      };
-      
-      const toggleTheme = () => {
-        const isDark = document.documentElement.classList.contains('dark');
-        const newTheme = isDark ? 'light' : 'dark';
-        document.documentElement.classList.toggle('dark', newTheme === 'dark');
-        localStorage.setItem('theme', newTheme);
-      };
-      
       // Smooth scrolling para navegação
       const handleSmoothScroll = (e: Event) => {
         const target = e.target as HTMLAnchorElement;
@@ -119,7 +106,6 @@ const { title, description = "MARKDEV - Criando soluções digitais inovadoras" 
       
       // Initialize everything when DOM is loaded
       document.addEventListener('DOMContentLoaded', () => {
-        initTheme();
         observeElements();
         
         // Smooth scroll for anchor links
@@ -129,12 +115,6 @@ const { title, description = "MARKDEV - Criando soluções digitais inovadoras" 
         
         // Navbar scroll effect
         window.addEventListener('scroll', handleNavbarScroll);
-        
-        // Theme toggle button
-        const themeToggle = document.getElementById('theme-toggle');
-        if (themeToggle) {
-          themeToggle.addEventListener('click', toggleTheme);
-        }
         
         // Typing effect for hero section
         const heroTitle = document.getElementById('hero-title');

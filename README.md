@@ -103,7 +103,7 @@ Edite os componentes em `src/components/` para personalizar:
 
 ### GitHub Pages (Recomendado)
 
-1. **Crie um repositório no GitHub** com o nome `markdev`
+1. **Crie um repositório no GitHub** com o nome `m4rcck11.github.io`
 2. **Faça push do código** para o repositório
 3. **Configure GitHub Pages**:
    - Vá em Settings > Pages
@@ -111,6 +111,7 @@ Edite os componentes em `src/components/` para personalizar:
    - Branch: gh-pages (será criado automaticamente pelo workflow)
    - Folder: / (root)
 4. **O deploy será automático** a cada push na branch main
+5. **Seu site estará disponível em**: `https://m4rcck11.github.io`
 
 ### Vercel (Alternativa)
 
@@ -134,8 +135,9 @@ Edite os componentes em `src/components/` para personalizar:
 O projeto já está configurado para funcionar no GitHub Pages com:
 
 - ✅ Workflow do GitHub Actions (`.github/workflows/deploy.yml`)
-- ✅ Configuração do Astro para base path correto
+- ✅ Configuração do Astro para domínio raiz
 - ✅ Build estático otimizado
+- ✅ Compatível com `m4rcck11.github.io`
 
 ## 📄 Licença
 

@@ -5,7 +5,7 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   integrations: [tailwind()],
   output: 'static',
-  base: process.env.NODE_ENV === 'production' ? '/markdev/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/' : '/',
   server: {
     port: 3000,
     host: true
