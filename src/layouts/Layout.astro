@@ -4,7 +4,7 @@ export interface Props {
   description?: string;
 }
 
-const { title, description = "MARKDEV - Criando soluções digitais inovadoras" } = Astro.props;
+const { title, description = "MARKDEV" } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -34,30 +34,11 @@ const { title, description = "MARKDEV - Criando soluções digitais inovadoras" 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" is:inline></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js" is:inline></script>
   </head>
-  <body class="bg-gray-50 text-gray-900 transition-colors duration-300" style="background-color: #242323;">
+  <body class="bg-custom-dark text-gray-900 transition-colors duration-300">
     <slot />
     
     <!-- Scripts para funcionalidades interativas -->
     <script>
-      // Smooth scrolling para navegação
-      const handleSmoothScroll = (e: Event) => {
-        const target = e.target as HTMLAnchorElement;
-        if (target.hash) {
-          e.preventDefault();
-          const element = document.querySelector(target.hash);
-          if (element) {
-            const headerOffset = 80;
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-            
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth'
-            });
-          }
-        }
-      };
-      
       // Intersection Observer para animações
       const observeElements = () => {
         const observer = new IntersectionObserver((entries) => {
@@ -107,11 +88,6 @@ const { title, description = "MARKDEV - Criando soluções digitais inovadoras" 
       // Initialize everything when DOM is loaded
       document.addEventListener('DOMContentLoaded', () => {
         observeElements();
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', handleSmoothScroll);
-        });
         
         // Navbar scroll effect
         window.addEventListener('scroll', handleNavbarScroll);

@@ -203,6 +203,8 @@ o8o        o888o o88o     o8888o o888o  o888o o888o  o888o o888bood8P'   o888ooo
 </style>
 
 <script>
+import type { NumericLiteral } from "typescript";
+
   // Aguarda o DOM estar completamente carregado
   window.addEventListener('load', function() {
     // Sistema de Partículas
@@ -221,7 +223,7 @@ o8o        o888o o88o     o8888o o888o  o888o o888o  o888o o888bood8P'   o888ooo
         return;
       }
       
-      let particles = [];
+      let particles: any[] = [];
       const mouse = { x: -1000, y: -1000 };
       let animationId;
       
@@ -257,31 +259,44 @@ o8o        o888o o88o     o8888o o888o  o888o o888o  o888o o888bood8P'   o888ooo
         return colors[charSetIndex];
       }
       let circleChars = [];
-      let charChangeTime = 0;
-      let terminalGrid = {}; // Grid do terminal (chave: "x,y", valor: objeto do caractere)
-      let trailPositions = []; // Array com posições do rastro
-      let lastMousePos = { x: -1000, y: -1000 };
-      let gridSpacing = 16; // Espaçamento entre caracteres no grid terminal
+      let charChangeTime: number = 0;
+      let terminalGrid: { [key: string]: any } = {}; // Grid do terminal (chave: "x,y", valor: objeto do caractere)
+      let trailPositions: Array<{ x: number; y: number; age: number; delay: number}> = []; // Array com posições do rastro
+      let lastMousePos: { x: number; y: number } = { x: -1000, y: -1000 };
+      let gridSpacing: number = 16; // Espaçamento entre caracteres no grid terminal
       
       // Configurar tamanho do canvas
       function resizeCanvas() {
-        canvas.width = container.offsetWidth;
-        canvas.height = container.offsetHeight;
-        console.log('Canvas resized:', canvas.width, 'x', canvas.height);
+        if (!canvas || !container) {
+          console.error('Canvas ou container não encontrado');
+          return;
+        }
+        
+        const canvasElement = canvas as HTMLCanvasElement;
+        canvasElement.width = container.offsetWidth;
+        canvasElement.height = container.offsetHeight;
+        console.log('Canvas redimensionado:', canvasElement.width, 'x', canvasElement.height);
       }
-      
              // Criar partículas
        function createParticles() {
          particles = [];
          
          // Configurações da grade
          const spacing = 50; // Espaçamento entre partículas
-         const cols = Math.floor(canvas.width / spacing);
-         const rows = Math.floor(canvas.height / spacing);
          
-         // Calcular offset para centralizar a grade
-         const offsetX = (canvas.width - (cols - 1) * spacing) / 2;
-         const offsetY = (canvas.height - (rows - 1) * spacing) / 2;
+         // Verificar se canvas existe e é um HTMLCanvasElement
+         if (!canvas) {
+           console.error('Canvas não encontrado');
+           return;
+         }
+         
+         const canvasElement = canvas as HTMLCanvasElement;
+         const cols = Math.floor(canvasElement.width / spacing);
+         const rows = Math.floor(canvasElement.height / spacing);
+         
+         // Calcular offset para centralizar a grade - usar canvasElement consistentemente
+         const offsetX = (canvasElement.width - (cols - 1) * spacing) / 2;
+         const offsetY = (canvasElement.height - (rows - 1) * spacing) / 2;
          
          console.log('Creating grid of', cols, 'x', rows, 'particles (', cols * rows, 'total)');
          
@@ -314,7 +329,7 @@ o8o        o888o o88o     o8888o o888o  o888o o888o  o888o o888bood8P'   o888ooo
        }
        
        // Converter posição do mouse para coordenadas do grid
-       function mouseToGrid(mouseX, mouseY) {
+       function mouseToGrid(mouseX: number, mouseY: number) {
          const gridX = Math.round(mouseX / gridSpacing);
          const gridY = Math.round(mouseY / gridSpacing);
          return { gridX, gridY };
@@ -326,7 +341,8 @@ o8o        o888o o88o     o8888o o888o  o888o o888o  o888o o888bood8P'   o888ooo
            
            // Verificar se o mouse está numa área que afeta partículas
            let hasNearbyParticles = false;
-           for (let particle of particles) {
+           for (let particle of particles as any[]) {
+             if (!particle) continue;
              const dx = mouse.x - particle.x;
              const dy = mouse.y - particle.y;
              const distance = Math.sqrt(dx * dx + dy * dy);
@@ -535,7 +551,7 @@ o8o        o888o o88o     o8888o o888o  o888o o888o  o888o o888bood8P'   o888ooo
           // Desenhar partícula como caractere
           ctx.save();
           ctx.globalAlpha = particle.opacity;
-          ctx.fillStyle = 'rgba(255, 255, 255, ' + particle.opacity + ')';
+          ctx.fillStyle = 'rgba(14, 204, 68, ' + particle.opacity + ')';
           ctx.font = particle.size + 'px monospace';
           // Atribuir um caractere se não tiver um
           if (!particle.char) {
@@ -842,22 +858,7 @@ o8o        o888o o88o     o8888o o888o  o888o o888o  o888o o888bood8P'   o888ooo
       typeWriter();
     }
     
-    // Inicializar efeito de digitação
-    const heroTyping = document.getElementById('hero-typing');
-    if (heroTyping) {
-      const texts = [
-        'Creating Digital Experiences',
-        'Securing Systems',
-        'Digitalizing Your Business',
-        'Optimizing SEO',
-        'Solving Digital Problems',
-        'Automating Workflows',
-      ];
-      
-      setTimeout(function() {
-        createTypingEffect(heroTyping, texts, 80, 2000);
-      }, 1000);
-    }
+
     
     // Função para animar o slogan com efeito de typing
     function initSloganTyping() {

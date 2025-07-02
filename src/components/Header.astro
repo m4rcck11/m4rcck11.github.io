@@ -6,22 +6,17 @@
   <nav class="container-custom">
     <div class="flex items-center justify-between py-4">
       <!-- Logo -->
-      <a href="#home" class="flex items-center space-x-3 hover:scale-105 transition-transform duration-300 -ml-6">
+      <a href="#home" class="logo-container flex items-center space-x-3 transition-transform duration-300 -ml-6">
         <img src="/logo.svg" alt="MARKDEV Logo" class="h-36 w-auto">
         <!-- <span class="text-2xl font-bold font-tech text-gradient hidden sm:block">MARKDEV</span> -->
       </a>
       
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center space-x-8">
-        <a href="#home" class="nav-link" data-text="Home">
-          <span class="glitch-layer">Home</span>
-          <span class="glitch-layer">Home</span>
-          Home
-        </a>
-        <a href="#about-markdev" class="nav-link" data-text="About MARKDEV">
-          <span class="glitch-layer">About MARKDEV</span>
-          <span class="glitch-layer">About MARKDEV</span>
-          About MARKDEV
+        <a href="#about-markdev" class="nav-link" data-text="Why Us?">
+          <span class="glitch-layer">Why Us?</span>
+          <span class="glitch-layer">Why Us?</span>
+          Why Us?
         </a>
         <a href="#services" class="nav-link" data-text="Services">
           <span class="glitch-layer">Services</span>
@@ -46,15 +41,10 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden pb-4">
       <div class="flex flex-col space-y-4">
-        <a href="#home" class="nav-link" data-text="Home">
-          <span class="glitch-layer">Home</span>
-          <span class="glitch-layer">Home</span>
-          Home
-        </a>
-        <a href="#about-markdev" class="nav-link" data-text="About MARKDEV">
-          <span class="glitch-layer">About MARKDEV</span>
-          <span class="glitch-layer">About MARKDEV</span>
-          About MARKDEV
+        <a href="#about-markdev" class="nav-link" data-text="Why Us?">
+          <span class="glitch-layer">Why Us?</span>
+          <span class="glitch-layer">Why Us?</span>
+          Why Us?
         </a>
         <a href="#services" class="nav-link" data-text="Services">
           <span class="glitch-layer">Services</span>
@@ -77,6 +67,9 @@
     background: transparent !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s ease, transform 0.4s ease;
   }
   
   .nav-link {
@@ -209,6 +202,50 @@
     100% { 
       opacity: 0.8; 
     }
+  }
+
+  .logo-container {
+    position: relative;
+  }
+
+  .logo-container:hover::before,
+  .logo-container:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/logo.svg') no-repeat center;
+    background-size: contain;
+    pointer-events: none;
+  }
+
+  .logo-container:hover::before {
+    filter: drop-shadow(2px 0 var(--cyber-cyan));
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    animation: glitch-top 2s infinite linear alternate-reverse;
+  }
+
+  .logo-container:hover::after {
+    filter: drop-shadow(-2px 0 var(--cyber-magenta));
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    animation: glitch-bottom 3s infinite linear alternate-reverse;
+  }
+
+  @keyframes glitch-top {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(2px); }
+  }
+
+  @keyframes glitch-bottom {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-2px); }
+  }
+
+  :root {
+    --cyber-cyan: #00ffff;
+    --cyber-magenta: #ff00ff;
   }
 </style>
 

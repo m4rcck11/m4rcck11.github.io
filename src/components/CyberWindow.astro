@@ -1,0 +1,26 @@
+---
+export interface Props {
+  title?: string;
+  class?: string;
+}
+
+const { title = "", class: className = "" } = Astro.props;
+---
+
+<div class={`cyber-window ${className}`}>
+  <div class="cyber-window-header">
+    <div class="cyber-window-controls">
+      <div class="cyber-window-control cyber-window-control-red"></div>
+      <div class="cyber-window-control cyber-window-control-yellow"></div>
+      <div class="cyber-window-control cyber-window-control-green"></div>
+    </div>
+    {title && (
+      <div class="flex-1 text-center">
+        <span class="text-sm font-bold tracking-widest cyber-text-muted cyber-font-tech">{title}</span>
+      </div>
+    )}
+  </div>
+  <div class="p-6">
+    <slot />
+  </div>
+</div> 

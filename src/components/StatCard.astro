@@ -1,0 +1,23 @@
+---
+export interface Props {
+  number: string;
+  label: string;
+  class?: string;
+}
+
+const { number, label, class: className = "" } = Astro.props;
+---
+
+<div class={`stat-card ${className}`}>
+  <div class="stat-card-header">
+    <div class="cyber-window-controls">
+      <div class="w-2.5 h-2.5 bg-red-500 rounded-full"></div>
+      <div class="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
+      <div class="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+    </div>
+  </div>
+  <div class="stat-card-content">
+    <div class="stat-number">{number}</div>
+    <div class="stat-label">{label}</div>
+  </div>
+</div> 
