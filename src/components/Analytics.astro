@@ -1,0 +1,182 @@
+---
+// Analytics component for performance monitoring
+---
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  // Type declarations for Google Analytics
+  declare global {
+    interface Window {
+      dataLayer: any[];
+      gtag: (...args: any[]) => void;
+    }
+  }
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(...args: any[]){window.dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID', {
+    page_title: document.title,
+    page_location: window.location.href,
+    custom_map: {
+      'custom_parameter_1': 'user_type',
+      'custom_parameter_2': 'page_section'
+    }
+  });
+</script>
+
+<!-- Performance monitoring -->
+<script>
+  // Core Web Vitals monitoring
+  if ('PerformanceObserver' in window) {
+    // LCP (Largest Contentful Paint)
+    new PerformanceObserver((entryList) => {
+      const entries = entryList.getEntries();
+      const lastEntry = entries[entries.length - 1];
+      const lcp = lastEntry.startTime;
+      
+      // Send to analytics if LCP is poor
+      if (lcp > 2500) {
+        window.gtag('event', 'poor_lcp', {
+          value: Math.round(lcp),
+          custom_parameter_1: 'performance_issue'
+        });
+      }
+    }).observe({entryTypes: ['largest-contentful-paint']});
+
+    // FID (First Input Delay)
+    new PerformanceObserver((entryList) => {
+      const entries = entryList.getEntries();
+      entries.forEach((entry: any) => {
+        const fid = entry.processingStart - entry.startTime;
+        
+        if (fid > 100) {
+          window.gtag('event', 'poor_fid', {
+            value: Math.round(fid),
+            custom_parameter_1: 'performance_issue'
+          });
+        }
+      });
+    }).observe({entryTypes: ['first-input']});
+
+    // CLS (Cumulative Layout Shift)
+    let clsValue = 0;
+    new PerformanceObserver((entryList) => {
+      const entries = entryList.getEntries();
+      entries.forEach((entry: any) => {
+        if (!entry.hadRecentInput) {
+          clsValue += entry.value;
+        }
+      });
+      
+      if (clsValue > 0.1) {
+        window.gtag('event', 'poor_cls', {
+          value: Math.round(clsValue * 1000) / 1000,
+          custom_parameter_1: 'performance_issue'
+        });
+      }
+    }).observe({entryTypes: ['layout-shift']});
+  }
+
+  // User interaction tracking
+  document.addEventListener('DOMContentLoaded', function() {
+    // Track button clicks
+    document.addEventListener('click', function(e) {
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'BUTTON' || target.tagName === 'A') {
+        const buttonText = target.textContent?.trim() || '';
+        const buttonClass = target.className || '';
+        
+        window.gtag('event', 'button_click', {
+          button_text: buttonText,
+          button_class: buttonClass,
+          page_location: window.location.pathname
+        });
+      }
+    });
+
+    // Track scroll depth
+    let maxScrollDepth = 0;
+    window.addEventListener('scroll', function() {
+      const scrollTop = window.pageYOffset;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+      
+      if (scrollPercent > maxScrollDepth) {
+        maxScrollDepth = scrollPercent;
+        
+        // Track at 25%, 50%, 75%, 100%
+        if (scrollPercent >= 25 && maxScrollDepth < 50) {
+          window.gtag('event', 'scroll_depth', { value: 25 });
+        } else if (scrollPercent >= 50 && maxScrollDepth < 75) {
+          window.gtag('event', 'scroll_depth', { value: 50 });
+        } else if (scrollPercent >= 75 && maxScrollDepth < 100) {
+          window.gtag('event', 'scroll_depth', { value: 75 });
+        } else if (scrollPercent >= 100) {
+          window.gtag('event', 'scroll_depth', { value: 100 });
+        }
+      }
+    });
+
+    // Track time on page
+    let startTime = Date.now();
+    window.addEventListener('beforeunload', function() {
+      const timeOnPage = Math.round((Date.now() - startTime) / 1000);
+      window.gtag('event', 'time_on_page', {
+        value: timeOnPage,
+        page_location: window.location.pathname
+      });
+    });
+
+    // Track form interactions
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+      form.addEventListener('submit', function() {
+        window.gtag('event', 'form_submit', {
+          form_id: form.id || 'unknown',
+          page_location: window.location.pathname
+        });
+      });
+    });
+
+    // Track external links
+    const externalLinks = document.querySelectorAll('a[href^="http"]:not([href*="' + window.location.hostname + '"])');
+    externalLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        window.gtag('event', 'external_link_click', {
+          link_url: (link as HTMLAnchorElement).href,
+          link_text: link.textContent?.trim() || ''
+        });
+      });
+    });
+  });
+
+  // Error tracking
+  window.addEventListener('error', function(e) {
+    window.gtag('event', 'javascript_error', {
+      error_message: e.message,
+      error_filename: e.filename,
+      error_lineno: e.lineno,
+      page_location: window.location.pathname
+    });
+  });
+
+  // Track page load performance
+  window.addEventListener('load', function() {
+    const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+    window.gtag('event', 'page_load_time', {
+      value: loadTime,
+      page_location: window.location.pathname
+    });
+  });
+</script>
+
+<!-- Privacy-friendly analytics -->
+<script>
+  // Respect user privacy preferences
+  if (navigator.doNotTrack === '1' || localStorage.getItem('analytics-disabled') === 'true') {
+    // Disable analytics
+    window.gtag = function() {};
+  }
+</script> 

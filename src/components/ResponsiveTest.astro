@@ -1,0 +1,255 @@
+---
+// Componente para testar responsividade
+---
+
+<div class="responsive-test-container">
+  <!-- Indicador de breakpoint atual -->
+  <div class="breakpoint-indicator">
+    <div class="breakpoint-xs">XS (0-479px)</div>
+    <div class="breakpoint-sm">SM (480-767px)</div>
+    <div class="breakpoint-md">MD (768-1023px)</div>
+    <div class="breakpoint-lg">LG (1024-1279px)</div>
+    <div class="breakpoint-xl">XL (1280-1535px)</div>
+    <div class="breakpoint-2xl">2XL (1536px+)</div>
+    <div class="breakpoint-3xl">3XL (1920px+)</div>
+  </div>
+  
+  <!-- Informações da tela -->
+  <div class="screen-info">
+    <div class="info-item">
+      <span class="label">Largura:</span>
+      <span class="value" id="screen-width">--</span>
+    </div>
+    <div class="info-item">
+      <span class="label">Altura:</span>
+      <span class="value" id="screen-height">--</span>
+    </div>
+    <div class="info-item">
+      <span class="label">Orientação:</span>
+      <span class="value" id="screen-orientation">--</span>
+    </div>
+    <div class="info-item">
+      <span class="label">Pixel Ratio:</span>
+      <span class="value" id="pixel-ratio">--</span>
+    </div>
+    <div class="info-item">
+      <span class="label">Zoom Level:</span>
+      <span class="value" id="zoom-level">--</span>
+    </div>
+    <div class="info-item">
+      <span class="label">Zoom Status:</span>
+      <span class="value" id="zoom-status">--</span>
+    </div>
+  </div>
+  
+  <!-- Teste de grid responsivo -->
+  <div class="grid-test">
+    <h3>Teste de Grid Responsivo</h3>
+    <div class="grid-responsive">
+      <div class="grid-item">Item 1</div>
+      <div class="grid-item">Item 2</div>
+      <div class="grid-item">Item 3</div>
+      <div class="grid-item">Item 4</div>
+      <div class="grid-item">Item 5</div>
+      <div class="grid-item">Item 6</div>
+    </div>
+  </div>
+  
+  <!-- Teste de texto responsivo -->
+  <div class="text-test">
+    <h3>Teste de Texto Responsivo</h3>
+    <p class="text-responsive-xs">Texto XS Responsivo</p>
+    <p class="text-responsive-sm">Texto SM Responsivo</p>
+    <p class="text-responsive-base">Texto Base Responsivo</p>
+    <p class="text-responsive-lg">Texto LG Responsivo</p>
+    <p class="text-responsive-xl">Texto XL Responsivo</p>
+    <p class="text-responsive-2xl">Texto 2XL Responsivo</p>
+  </div>
+  
+  <!-- Teste de botões responsivos -->
+  <div class="button-test">
+    <h3>Teste de Botões Responsivos</h3>
+    <div class="flex-responsive">
+      <button class="btn-responsive">Botão 1</button>
+      <button class="btn-responsive">Botão 2</button>
+      <button class="btn-responsive">Botão 3</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .responsive-test-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    z-index: 9999;
+    padding: 1rem;
+    font-family: monospace;
+    overflow-y: auto;
+  }
+  
+  .breakpoint-indicator {
+    position: sticky;
+    top: 0;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+  }
+  
+  .breakpoint-indicator > div {
+    display: none;
+    font-weight: bold;
+    color: #00ff00;
+  }
+  
+  /* Mostrar apenas o breakpoint atual */
+  @media (max-width: 479px) {
+    .breakpoint-xs { display: block; }
+  }
+  
+  @media (min-width: 480px) and (max-width: 767px) {
+    .breakpoint-sm { display: block; }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .breakpoint-md { display: block; }
+  }
+  
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .breakpoint-lg { display: block; }
+  }
+  
+  @media (min-width: 1280px) and (max-width: 1535px) {
+    .breakpoint-xl { display: block; }
+  }
+  
+  @media (min-width: 1536px) and (max-width: 1919px) {
+    .breakpoint-2xl { display: block; }
+  }
+  
+  @media (min-width: 1920px) {
+    .breakpoint-3xl { display: block; }
+  }
+  
+  .screen-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .info-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+  
+  .label {
+    color: #888;
+    margin-right: 0.5rem;
+  }
+  
+  .value {
+    color: #00ff00;
+    font-weight: bold;
+  }
+  
+  .grid-test,
+  .text-test,
+  .button-test {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.5rem;
+  }
+  
+  .grid-item {
+    background: rgba(0, 255, 0, 0.2);
+    padding: 1rem;
+    border: 1px solid rgba(0, 255, 0, 0.5);
+    border-radius: 0.25rem;
+    text-align: center;
+  }
+  
+  .btn-responsive {
+    background: rgba(0, 255, 0, 0.2);
+    border: 1px solid rgba(0, 255, 0, 0.5);
+    color: white;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  
+  .btn-responsive:hover {
+    background: rgba(0, 255, 0, 0.3);
+  }
+  
+  /* Botão para fechar o teste */
+  .close-test {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    z-index: 10000;
+  }
+</style>
+
+<script>
+  // Atualizar informações da tela
+  const updateScreenInfo = () => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const orientation = width > height ? 'Landscape' : 'Portrait';
+    const pixelRatio = window.devicePixelRatio;
+    
+    // Calcular zoom level
+    const zoomLevel = Math.round(window.devicePixelRatio * 100);
+    let zoomStatus = 'Normal';
+    
+    if (zoomLevel >= 120) {
+      zoomStatus = '120% Zoom';
+    } else if (zoomLevel >= 110) {
+      zoomStatus = '110% Zoom';
+    } else if (zoomLevel <= 90) {
+      zoomStatus = 'Zoom Out';
+    }
+    
+    const widthEl = document.getElementById('screen-width');
+    const heightEl = document.getElementById('screen-height');
+    const orientationEl = document.getElementById('screen-orientation');
+    const pixelRatioEl = document.getElementById('pixel-ratio');
+    const zoomLevelEl = document.getElementById('zoom-level');
+    const zoomStatusEl = document.getElementById('zoom-status');
+    
+    if (widthEl) widthEl.textContent = `${width}px`;
+    if (heightEl) heightEl.textContent = `${height}px`;
+    if (orientationEl) orientationEl.textContent = orientation;
+    if (pixelRatioEl) pixelRatioEl.textContent = pixelRatio.toFixed(2);
+    if (zoomLevelEl) zoomLevelEl.textContent = `${zoomLevel}%`;
+    if (zoomStatusEl) zoomStatusEl.textContent = zoomStatus;
+  };
+  
+  // Atualizar na carga e no redimensionamento
+  window.addEventListener('load', updateScreenInfo);
+  window.addEventListener('resize', updateScreenInfo);
+  window.addEventListener('orientationchange', updateScreenInfo);
+  
+  // Botão para fechar o teste
+  const closeButton = document.createElement('button');
+  closeButton.textContent = 'Fechar Teste';
+  closeButton.className = 'close-test';
+  closeButton.onclick = () => {
+    const container = document.querySelector('.responsive-test-container');
+    if (container) container.remove();
+  };
+  document.body.appendChild(closeButton);
+</script> 

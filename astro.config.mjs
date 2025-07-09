@@ -9,5 +9,31 @@ export default defineConfig({
   server: {
     port: 3000,
     host: true
+  },
+  // Performance optimizations
+  build: {
+    inlineStylesheets: 'auto',
+    split: true,
+    assets: 'assets'
+  },
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'particles': ['./src/components/hero-script.js']
+          }
+        }
+      }
+    },
+    ssr: {
+      noExternal: ['@astrojs/tailwind']
+    }
+  },
+  // Image optimization
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp'
+    }
   }
 }); 

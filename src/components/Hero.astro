@@ -10,18 +10,20 @@
     <div class="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
   </div>
   
-     <!-- Hero Text Content -->
-   <div class="absolute inset-0 flex flex-col items-center justify-center z-20 gap-4">
-     <!-- Studio by Marcelo -->
-     <div class="text-center">
-       <p class="text-white font-light text-xs sm:text-sm md:text-base lg:text-lg tracking-wide opacity-70 mb-4">
-         An independent studio by Marcelo
-       </p>
-     </div>
-     
-     <!-- ASCII Art MARKDEV -->
-     <div class="flex items-center justify-center">
-       <pre id="ascii-title" class="ascii-art text-white font-mono text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px] xl:text-[18px] leading-[0.9] select-none opacity-90">
+  <!-- Hero Text Content -->
+  <div class="absolute inset-0 flex flex-col items-center justify-center z-20 gap-4 hero-content">
+    <!-- Studio by Marcelo -->
+    <div class="text-center">
+      <p class="text-white font-light text-responsive-sm tracking-wide opacity-70 mb-4">
+        An independent studio by Marcelo
+      </p>
+    </div>
+    
+    <!-- ASCII Art MARKDEV -->
+    <div class="flex items-center justify-center">
+      <!-- SEO-friendly hidden title -->
+      <h1 class="sr-only">MARKDEV</h1>
+      <pre id="ascii-title" class="ascii-art ascii-art-responsive text-white font-mono leading-[0.9] select-none opacity-90" aria-hidden="true">
 ooo        ooooo       .o.       ooooooooo.   oooo    oooo oooooooooo.   oooooooooooo oooooo     oooo 
 ooo        ooooo       .o.       ooooooooo.   oooo    oooo oooooooooo.   oooooooooooo oooooo     oooo 
 `88.       .888'      .888.      `888   `Y88. `888   .8P'  `888'   `Y8b  `888'     `8  `888.     .8'  
@@ -36,47 +38,58 @@ ooo        ooooo       .o.       ooooooooo.   oooo    oooo oooooooooo.   ooooooo
  8    Y     888   .8'     `888.   888  `88b.   888  `88b.   888     d88'  888       o      `888'      
 o8o        o888o o88o     o8888o o888o  o888o o888o  o888o o888bood8P'   o888ooooood8       `8'       
 o8o        o888o o88o     o8888o o888o  o888o o888o  o888o o888bood8P'   o888ooooood8       `8'       
-</pre>
-     </div>
-     
-     <!-- Location and Time -->
-     <div class="text-center mt-6">
-                <div class="flex items-center justify-center gap-3 text-white opacity-70">
-           <span class="text-sm sm:text-base md:text-lg font-light tracking-wide">
-             Available Worldwide - Based in São Paulo, Brazil
-           </span>
-           <div class="flex items-center gap-2 ml-4">
-             <svg class="w-4 h-4 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-               <circle cx="12" cy="12" r="10"></circle>
-               <polyline points="12,6 12,12 16,14"></polyline>
-             </svg>
-             <div class="flex flex-col items-center">
-               <span id="sao-paulo-time" class="text-sm font-mono tracking-wider opacity-80">
-                 --:--:--
-               </span>
-               <span id="timezone-info" class="text-xs font-mono tracking-wider opacity-60 mt-0.5">
-                 GMT-3
-               </span>
-             </div>
-           </div>
-         </div>
-     </div>
-   </div>
-   
-   <!-- Slogan positioned in left corner -->
-   <div class="absolute left-8 bottom-32 z-30 slogan-container">
-     <div class="text-left">
-       <div class="text-white font-light text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed font-mono tracking-wide">
-         <div id="slogan-line-1" class="slogan-line block mb-1 opacity-0"></div>
-         <div id="slogan-line-2" class="slogan-line block mb-1 opacity-0"></div>
-         <div id="slogan-line-3" class="slogan-line block mb-1 opacity-0"></div>
-         <div id="slogan-line-4" class="slogan-line block mb-1 opacity-0"></div>
-         <div id="slogan-line-5" class="slogan-line block text-gray-300 mb-1 opacity-0"></div>
-         <span id="slogan-cursor" class="inline-block w-3 h-6 bg-white ml-1 opacity-0 slogan-cursor-blink"></span>
-       </div>
-     </div>
-   </div>
+      </pre>
+    </div>
+    
+    <!-- Proposta de Valor Imediata -->
+    <p class="text-white text-responsive-lg font-light opacity-80 -mt-2 md:-mt-4 text-center">
+      MARKDEV
+    </p>
+
+    <!-- Call-to-Action Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 mt-8 hero-buttons">
+      <a href="#projects" class="hero-btn-primary btn-responsive">Our Work</a>
+      <a href="#contact" class="hero-btn-secondary btn-responsive">Talk to Us</a>
+    </div>
+    
+    <!-- Location and Time -->
+    <div class="text-center mt-6">
+      <div class="flex flex-responsive items-center justify-center gap-3 text-white opacity-70">
+        <span class="text-responsive-sm font-light tracking-wide">
+          Available Worldwide - Based in São Paulo, Brazil
+        </span>
+        <div class="flex items-center gap-2 ml-4">
+          <svg class="w-4 h-4 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12,6 12,12 16,14"></polyline>
+          </svg>
+          <div class="flex flex-col items-center">
+            <span id="sao-paulo-time" class="text-sm font-mono tracking-wider opacity-80">
+              --:--:--
+            </span>
+            <span id="timezone-info" class="text-xs font-mono tracking-wider opacity-60 mt-0.5">
+              GMT-3
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   
+  <!-- Slogan positioned in left corner -->
+  <div class="absolute left-8 bottom-32 z-30 slogan-container">
+    <div class="text-left">
+      <div class="text-white font-light text-responsive-2xl leading-relaxed font-mono tracking-wide">
+        <div id="slogan-line-1" class="slogan-line block mb-1 opacity-0"></div>
+        <div id="slogan-line-2" class="slogan-line block mb-1 opacity-0"></div>
+        <div id="slogan-line-3" class="slogan-line block mb-1 opacity-0"></div>
+        <div id="slogan-line-4" class="slogan-line block mb-1 opacity-0"></div>
+        <div id="slogan-line-5" class="slogan-line block text-gray-300 mb-1 opacity-0"></div>
+        <span id="slogan-cursor" class="inline-block w-3 h-6 bg-white ml-1 opacity-0 slogan-cursor-blink"></span>
+      </div>
+    </div>
+  </div>
+
   <!-- Scroll Indicator -->
   <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-30">
     <a href="#section-1" class="scroll-balloon">
@@ -91,6 +104,19 @@ o8o        o888o o88o     o8888o o888o  o888o o888o  o888o o888bood8P'   o888ooo
 </section>
 
 <style>
+  /* Screen reader only class for accessibility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
   /* Particles Canvas */
   #particles-canvas {
     background: #0a0a0a;
@@ -179,759 +205,59 @@ o8o        o888o o88o     o8888o o888o  o888o o888o  o888o o888bood8P'   o888ooo
     }
   }
   
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .hero-btn-primary,
-    .hero-btn-secondary {
-      @apply px-6 py-3 text-sm;
+  /* Responsive adjustments - Now handled by responsive.css */
+  /* Custom adjustments for specific elements */
+  
+  /* Ensure ASCII art doesn't break on very small screens */
+  @media (max-width: 320px) {
+    .ascii-art-responsive {
+      font-size: 6px !important;
+      transform: scale(0.7);
+    }
+  }
+  
+  /* Ultra-wide screen optimizations */
+  @media (min-width: 2560px) {
+    .hero-content {
+      max-width: 1600px;
+    }
+    
+    .ascii-art-responsive {
+      font-size: 24px;
+    }
+  }
+  
+  /* Landscape mobile optimizations */
+  @media (max-width: 767px) and (orientation: landscape) {
+    .hero-content {
+      padding: 0.5rem;
+      gap: 0.5rem;
     }
     
     .slogan-container {
-      left: 1rem;
-      bottom: 8rem;
-    }
-    
-    .slogan-container div {
-      font-size: 1rem;
-    }
-    
-    #slogan-cursor {
-      width: 0.5rem;
-      height: 1rem;
+      margin-top: 1rem;
     }
   }
 </style>
 
+<!-- Lazy load JavaScript for better performance -->
 <script>
-import type { NumericLiteral } from "typescript";
-
-  // Aguarda o DOM estar completamente carregado
-  window.addEventListener('load', function() {
-    // Sistema de Partículas
-    function initParticles() {
-      const canvas = document.getElementById('particles-canvas');
-      const container = document.getElementById('particles-container');
-      
-      if (!canvas || !container) {
-        console.error('Canvas or container not found');
-        return;
-      }
-      
-      const ctx = canvas.getContext('2d');
-      if (!ctx) {
-        console.error('2D Context not available');
-        return;
-      }
-      
-      let particles: any[] = [];
-      const mouse = { x: -1000, y: -1000 };
-      let animationId;
-      
-      // Caracteres de diferentes idiomas para o efeito
-      const japaneseChars = ['あ', 'い', 'う', 'え', 'お', 'か', 'き', 'く', 'け', 'こ', 'さ', 'し', 'す', 'せ', 'そ', 'た', 'ち', 'つ', 'て', 'と', 'な', 'に', 'ぬ', 'ね', 'の', 'は', 'ひ', 'ふ', 'へ', 'ほ', 'ま', 'み', 'む', 'め', 'も', 'や', 'ゆ', 'よ', 'ら', 'り', 'る', 'れ', 'ろ', 'わ', 'を', 'ん', 'ア', 'イ', 'ウ', 'エ', 'オ', 'カ', 'キ', 'ク', 'ケ', 'コ', 'サ', 'シ', 'ス', 'セ', 'ソ', 'タ', 'チ', 'ツ', 'テ', 'ト', 'ナ', 'ニ', 'ヌ', 'ネ', 'ノ', 'ハ', 'ヒ', 'フ', 'ヘ', 'ホ', 'マ', 'ミ', 'ム', 'メ', 'モ', 'ヤ', 'ユ', 'ヨ', 'ラ', 'リ', 'ル', 'レ', 'ロ', 'ワ', 'ヲ', 'ン'];
-      
-      const chineseChars = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '中', '国', '人', '大', '小', '上', '下', '左', '右', '前', '后', '东', '南', '西', '北', '天', '地', '山', '水', '火', '木', '金', '土', '日', '月', '星', '风', '雨', '雪', '花', '草', '树', '鸟', '鱼', '龙', '虎', '马', '牛', '羊', '狗', '猫', '爱', '和', '平', '美', '好', '新', '老', '高', '低', '快', '慢', '多', '少', '白', '黑', '红', '绿', '蓝', '黄'];
-      
-      const brazilianChars = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Á', 'À', 'Â', 'Ã', 'É', 'Ê', 'Í', 'Ó', 'Ô', 'Õ', 'Ú', 'Ü', 'Ç', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'á', 'à', 'â', 'ã', 'é', 'ê', 'í', 'ó', 'ô', 'õ', 'ú', 'ü', 'ç'];
-      
-      const russianChars = ['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я', 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я'];
-      
-      // Array combinado de todos os caracteres organizados por tipo
-      const allCharSets = [japaneseChars, chineseChars, brazilianChars, russianChars];
-      const charSetNames = ['japanese', 'chinese', 'brazilian', 'russian'];
-      
-      // Função para obter caractere aleatório intercalando entre os idiomas
-      function getRandomCharacter(index = 0) {
-        const charSetIndex = index % allCharSets.length; // Intercala entre os 4 conjuntos
-        const selectedCharSet = allCharSets[charSetIndex];
-        return selectedCharSet[Math.floor(Math.random() * selectedCharSet.length)];
-      }
-      
-      // Função para obter cor baseada no tipo de caractere
-      function getCharacterColor(index = 0) {
-        const charSetIndex = index % allCharSets.length;
-        const colors = [
-          '#00ff41', // Green - Japanese
-          '#ff4444', // Red - Chinese
-          '#44ff44', // Light Green - Brazilian
-          '#4444ff'  // Blue - Russian
-        ];
-        return colors[charSetIndex];
-      }
-      let circleChars = [];
-      let charChangeTime: number = 0;
-      let terminalGrid: { [key: string]: any } = {}; // Grid do terminal (chave: "x,y", valor: objeto do caractere)
-      let trailPositions: Array<{ x: number; y: number; age: number; delay: number}> = []; // Array com posições do rastro
-      let lastMousePos: { x: number; y: number } = { x: -1000, y: -1000 };
-      let gridSpacing: number = 16; // Espaçamento entre caracteres no grid terminal
-      
-      // Configurar tamanho do canvas
-      function resizeCanvas() {
-        if (!canvas || !container) {
-          console.error('Canvas ou container não encontrado');
-          return;
-        }
-        
-        const canvasElement = canvas as HTMLCanvasElement;
-        canvasElement.width = container.offsetWidth;
-        canvasElement.height = container.offsetHeight;
-        console.log('Canvas redimensionado:', canvasElement.width, 'x', canvasElement.height);
-      }
-             // Criar partículas
-       function createParticles() {
-         particles = [];
-         
-         // Configurações da grade
-         const spacing = 50; // Espaçamento entre partículas
-         
-         // Verificar se canvas existe e é um HTMLCanvasElement
-         if (!canvas) {
-           console.error('Canvas não encontrado');
-           return;
-         }
-         
-         const canvasElement = canvas as HTMLCanvasElement;
-         const cols = Math.floor(canvasElement.width / spacing);
-         const rows = Math.floor(canvasElement.height / spacing);
-         
-         // Calcular offset para centralizar a grade - usar canvasElement consistentemente
-         const offsetX = (canvasElement.width - (cols - 1) * spacing) / 2;
-         const offsetY = (canvasElement.height - (rows - 1) * spacing) / 2;
-         
-         console.log('Creating grid of', cols, 'x', rows, 'particles (', cols * rows, 'total)');
-         
-         for (let row = 0; row < rows; row++) {
-           for (let col = 0; col < cols; col++) {
-             const particle = {
-               x: offsetX + col * spacing,
-               y: offsetY + row * spacing,
-               originalX: 0,
-               originalY: 0,
-               vx: (Math.random() - 0.5) * 0.2,
-               vy: (Math.random() - 0.5) * 0.2,
-               size: 5, // Tamanho fixo para todas as partículas
-               opacity: 0.8 // Opacidade fixa para uniformidade
-             };
-             
-             particle.originalX = particle.x;
-             particle.originalY = particle.y;
-             particles.push(particle);
-           }
-         }
-       }
-       
-       // Criar sistema de grid terminal organizado
-       function createCircleChars() {
-         circleChars = [];
-         terminalGrid = {};
-         // Removido: não criar mais o círculo de caracteres ao redor do mouse
-         // O rastro será o único efeito visual
-       }
-       
-       // Converter posição do mouse para coordenadas do grid
-       function mouseToGrid(mouseX: number, mouseY: number) {
-         const gridX = Math.round(mouseX / gridSpacing);
-         const gridY = Math.round(mouseY / gridSpacing);
-         return { gridX, gridY };
-       }
-       
-                // Desenhar sistema de grid terminal com rastro organizado
-         function drawJapaneseCircle() {
-           if (mouse.x < 0 || mouse.y < 0) return;
-           
-           // Verificar se o mouse está numa área que afeta partículas
-           let hasNearbyParticles = false;
-           for (let particle of particles as any[]) {
-             if (!particle) continue;
-             const dx = mouse.x - particle.x;
-             const dy = mouse.y - particle.y;
-             const distance = Math.sqrt(dx * dx + dy * dy);
-             if (distance < 60) { // Aumentado de 40 para 60 para maior área de influência
-               hasNearbyParticles = true;
-               break;
-             }
-           }
-           
-           if (!hasNearbyParticles) {
-             // Limpar grid quando mouse sai da área
-             terminalGrid = {};
-             trailPositions = [];
-             return;
-           }
-           
-           // Atualizar timer
-           charChangeTime++;
-           
-           // Detectar movimento significativo do mouse
-           const mouseDistance = Math.sqrt((mouse.x - lastMousePos.x) * (mouse.x - lastMousePos.x) + (mouse.y - lastMousePos.y) * (mouse.y - lastMousePos.y));
-           
-           if (mouseDistance > 8) { // Reduzido de 12 para 8 para rastro mais fluido
-             // Adicionar nova posição ao rastro (posição exata do mouse)
-             trailPositions.unshift({
-               x: mouse.x,
-               y: mouse.y,
-               age: 0,
-               delay: 0
-             });
-             
-             // Limitar rastro (aumentado para mais posições para rastro mais longo)
-             if (trailPositions.length > 25) { // Aumentado de 15 para 25
-               trailPositions.pop();
-             }
-             
-             lastMousePos.x = mouse.x;
-             lastMousePos.y = mouse.y;
-           }
-           
-           // Limpar grid anterior
-           Object.keys(terminalGrid).forEach(key => {
-             terminalGrid[key].isActive = false;
-           });
-           
-           // Atualizar rastros com delays progressivos
-           trailPositions.forEach(function(trailPos, index) {
-             trailPos.age++;
-             trailPos.delay = index * 1; // Reduzido delay para rastro mais rápido
-             
-             // Só ativar depois do delay
-             if (trailPos.age > trailPos.delay) {
-               // Criar múltiplas posições ao redor de cada ponto do rastro para aumentar o diâmetro
-               const baseRadius = 20; // Raio base aumentado de 16 para 20
-               const positions = [];
-               
-               // Criar círculo de posições ao redor de cada ponto do rastro
-               for (let angle = 0; angle < Math.PI * 2; angle += Math.PI / 4) { // 8 posições ao redor
-                 const radius = baseRadius * (1 - index * 0.02); // Diminui gradualmente
-                 const offsetX = Math.cos(angle) * radius;
-                 const offsetY = Math.sin(angle) * radius;
-                 
-                 positions.push({
-                   x: trailPos.x + offsetX,
-                   y: trailPos.y + offsetY
-                 });
-               }
-               
-               // Adicionar posição central
-               positions.push({ x: trailPos.x, y: trailPos.y });
-               
-               // Criar caracteres para cada posição
-               positions.forEach(function(pos, posIndex) {
-                 const gridX = Math.round(pos.x / gridSpacing);
-                 const gridY = Math.round(pos.y / gridSpacing);
-                 const key = gridX + ',' + gridY;
-                 
-                                   // Trocar caractere periodicamente intercalando idiomas
-                  let char = terminalGrid[key] ? terminalGrid[key].char : getRandomCharacter(index + posIndex);
-                  if (charChangeTime % (15 + index * 2) === 0) {
-                    char = getRandomCharacter(index + posIndex + charChangeTime);
-                  }
-                 
-                                   terminalGrid[key] = {
-                    char: char,
-                    opacity: Math.max(0.1, 1.0 - (index * 0.03) - (posIndex * 0.05)), // Opacidade decrescente
-                    x: pos.x,
-                    y: pos.y,
-                    age: trailPos.age - trailPos.delay,
-                    trailIndex: index,
-                    color: getCharacterColor(index + posIndex), // Cor baseada no idioma
-                    isActive: true
-                  };
-               });
-             }
-           });
-           
-           // Remover rastros muito antigos
-           trailPositions = trailPositions.filter(trailPos => trailPos.age < 150); // Aumentado de 120 para 150
-           
-           ctx.save();
-           ctx.font = '14px monospace'; // Reduzido de 14px para 12px
-           ctx.textAlign = 'center';
-           ctx.textBaseline = 'middle';
-           
-                       // Desenhar apenas o rastro (caracteres mais transparentes)
-            Object.keys(terminalGrid).forEach(function(key) {
-              const gridChar = terminalGrid[key];
-              if (gridChar.isActive) {
-                // Usar posição direta (já é absoluta)
-                const absoluteX = gridChar.x;
-                const absoluteY = gridChar.y;
-                
-                ctx.globalAlpha = gridChar.opacity;
-                ctx.fillStyle = gridChar.color || '#00ff41'; // Usar cor específica do idioma
-                // Sem shadowBlur - caracteres nítidos como terminal
-                ctx.shadowColor = 'transparent';
-                ctx.shadowBlur = 0;
-                
-                ctx.fillText(gridChar.char, absoluteX, absoluteY);
-              }
-            });
-           
-           // REMOVIDO: Círculo principal ao redor do mouse - não desenhar mais
-           // circleChars.forEach(...) - código removido
-           
-           ctx.restore();
-         }
-      
-      // Event listeners
-      function setupEvents() {
-        // Redimensionamento
-        window.addEventListener('resize', function() {
-          resizeCanvas();
-          createParticles();
-          createCircleChars();
+  // Use Intersection Observer for lazy loading
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Load hero functionality only when visible
+        import('./hero-script.js').then(module => {
+          module.initHero();
         });
-        
-        // Mouse move no documento inteiro (mais confiável)
-        document.addEventListener('mousemove', function(e) {
-          const rect = canvas.getBoundingClientRect();
-          mouse.x = e.clientX - rect.left;
-          mouse.y = e.clientY - rect.top;
-        });
-        
-        // Mouse move no container
-        container.addEventListener('mousemove', function(e) {
-          const rect = container.getBoundingClientRect();
-          mouse.x = e.clientX - rect.left;
-          mouse.y = e.clientY - rect.top;
-        });
-        
-        // Mouse leave do documento
-        document.addEventListener('mouseleave', function() {
-          mouse.x = -1000;
-          mouse.y = -1000;
-        });
-        
-        // Mouse leave do container
-        container.addEventListener('mouseleave', function() {
-          mouse.x = -1000;
-          mouse.y = -1000;
-        });
+        observer.unobserve(entry.target);
       }
-      
-      // Animação
-      function animate() {
-        // Limpar canvas
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        // Animar cada partícula
-        particles.forEach(function(particle) {
-          // Calcular distância do mouse
-          const dx = mouse.x - particle.x;
-          const dy = mouse.y - particle.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          const maxDistance = 80;
-          
-          if (distance < maxDistance && mouse.x > -500) {
-            // Empurrar partículas para longe do mouse
-            const force = (maxDistance - distance) / maxDistance;
-            const angle = Math.atan2(dy, dx);
-            const pushDistance = force * 120;
-            
-            particle.x -= Math.cos(angle) * pushDistance * 0.3;
-            particle.y -= Math.sin(angle) * pushDistance * 0.3;
-          } else {
-            // Retornar à posição original
-            const returnSpeed = 0.08;
-            particle.x += (particle.originalX - particle.x) * returnSpeed;
-            particle.y += (particle.originalY - particle.y) * returnSpeed;
-          }
-          
-          // Movimento aleatório sutil
-          particle.x += particle.vx;
-          particle.y += particle.vy;
-          
-          // Manter dentro dos limites
-          if (particle.x < 0 || particle.x > canvas.width) {
-            particle.vx *= -1;
-          }
-          if (particle.y < 0 || particle.y > canvas.height) {
-            particle.vy *= -1;
-          }
-          
-          // Desenhar partícula como caractere
-          ctx.save();
-          ctx.globalAlpha = particle.opacity;
-          ctx.fillStyle = 'rgba(14, 204, 68, ' + particle.opacity + ')';
-          ctx.font = particle.size + 'px monospace';
-          // Atribuir um caractere se não tiver um
-          if (!particle.char) {
-            particle.char = getRandomCharacter(particles.indexOf(particle));
-          }
-          ctx.fillText(particle.char, particle.x, particle.y);
-          ctx.restore();
-        });
-        
-        // Desenhar conexões
-        drawConnections();
-        
-        // Desenhar círculo de caracteres japoneses
-        drawJapaneseCircle();
-        
-        // Continuar animação
-        animationId = requestAnimationFrame(animate);
-      }
-      
-      // Desenhar conexões entre partículas
-      function drawConnections() {
-        const maxConnectionDistance = 80;
-        
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const particle1 = particles[i];
-            const particle2 = particles[j];
-            
-            const dx = particle1.x - particle2.x;
-            const dy = particle1.y - particle2.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            
-            if (distance < maxConnectionDistance) {
-              const opacity = (1 - distance / maxConnectionDistance) * 0.2;
-              
-              ctx.save();
-              ctx.globalAlpha = opacity;
-              ctx.strokeStyle = 'rgba(255, 255, 255, ' + opacity + ')';
-              ctx.lineWidth = 0.5;
-              ctx.beginPath();
-              ctx.moveTo(particle1.x, particle1.y);
-              ctx.lineTo(particle2.x, particle2.y);
-              ctx.stroke();
-              ctx.restore();
-            }
-          }
-        }
-      }
-      
-      // Inicializar
-      resizeCanvas();
-      createParticles();
-      createCircleChars();
-      setupEvents();
-      animate();
-      
-      console.log('Particle system initialized successfully!');
-    }
-    
-    // Iniciar sistema de partículas
-    initParticles();
-    
-    // Efeito 3D do título ASCII responsivo ao mouse
-    function initASCII3DEffect() {
-      const asciiTitle = document.getElementById('ascii-title');
-      if (!asciiTitle) return;
-      
-      let mouseX = 0;
-      let mouseY = 0;
-      let targetX = 0;
-      let targetY = 0;
-      let previousX = 0;
-      let previousY = 0;
-      
-      // Armazenar texto ASCII original
-      const originalText = asciiTitle.textContent;
-      const originalLines = originalText.split('\n');
-      
-      // Caracteres alternativos para o efeito de cascata
-      const glitchChars = ['▓', '▒', '░', '█', '▄', '▀', '■', '□', '▪', '▫', '●', '○'];
-      let cascadeActive = false;
-      let cascadeTimeout;
-      
-      // Listener para movimento do mouse
-      document.addEventListener('mousemove', function(e) {
-        previousX = mouseX;
-        previousY = mouseY;
-        mouseX = (e.clientX / window.innerWidth) * 2 - 1; // Normalizar entre -1 e 1
-        mouseY = (e.clientY / window.innerHeight) * 2 - 1; // Normalizar entre -1 e 1
-      });
-      
-      // Função para criar efeito de cascata
-      function triggerCascade(fromAxis) {
-        if (cascadeActive) return;
-        cascadeActive = true;
-        
-        const lines = [...originalLines];
-        const totalLines = lines.length;
-        const lineLength = Math.max(...lines.map(line => line.length));
-        
-        // Determinar direção da cascata baseada no eixo mais próximo
-        let startLine, endLine, startChar, endChar;
-        
-        if (fromAxis === 'horizontal') {
-          // Cascata horizontal (esquerda para direita ou direita para esquerda)
-          startLine = 0;
-          endLine = totalLines;
-          if (mouseX < 0) {
-            startChar = 0;
-            endChar = lineLength;
-          } else {
-            startChar = lineLength;
-            endChar = 0;
-          }
-        } else {
-          // Cascata vertical (topo para baixo ou baixo para topo)
-          startChar = 0;
-          endChar = lineLength;
-          if (mouseY < 0) {
-            startLine = 0;
-            endLine = totalLines;
-          } else {
-            startLine = totalLines;
-            endLine = 0;
-          }
-        }
-        
-        let step = 0;
-        const maxSteps = 8;
-        
-        function animateCascade() {
-          if (step >= maxSteps) {
-            // Restaurar texto original
-            asciiTitle.textContent = originalText;
-            cascadeActive = false;
-            return;
-          }
-          
-          // Aplicar glitch em cascata
-          const modifiedLines = lines.map((line, lineIndex) => {
-            return line.split('').map((char, charIndex) => {
-              // Calcular distância do ponto de origem da cascata
-              let distanceFromOrigin;
-              
-              if (fromAxis === 'horizontal') {
-                distanceFromOrigin = Math.abs(charIndex - (startChar < endChar ? startChar : lineLength - startChar));
-              } else {
-                distanceFromOrigin = Math.abs(lineIndex - (startLine < endLine ? startLine : totalLines - startLine));
-              }
-              
-              // Se está na área de efeito atual
-              if (distanceFromOrigin <= step && distanceFromOrigin > step - 3) {
-                // Substituir por caractere de glitch aleatório
-                if (char.trim() !== '') {
-                  return glitchChars[Math.floor(Math.random() * glitchChars.length)];
-                }
-              }
-              
-              return char;
-            }).join('');
-          });
-          
-          asciiTitle.textContent = modifiedLines.join('\n');
-          step++;
-          
-          setTimeout(animateCascade, 50);
-        }
-        
-        animateCascade();
-      }
-      
-      // Animação suave do título
-      function animateTitle() {
-        // Calcular velocidade do movimento
-        const deltaX = Math.abs(mouseX - previousX);
-        const deltaY = Math.abs(mouseY - previousY);
-        const totalDelta = deltaX + deltaY;
-        
-        // Se movimento for muito rápido, triggerar cascata
-        if (totalDelta > 0.1 && !cascadeActive) {
-          // Determinar qual eixo teve maior movimento
-          const dominantAxis = deltaX > deltaY ? 'horizontal' : 'vertical';
-          triggerCascade(dominantAxis);
-        }
-        
-        // Interpolação suave
-        targetX += (mouseX - targetX) * 0.05;
-        targetY += (mouseY - targetY) * 0.05;
-        
-        // Calcular rotações baseadas na posição do mouse
-        const rotateX = targetY * 8; // Máximo 8 graus
-        const rotateY = targetX * -8; // Máximo 8 graus (invertido)
-        const translateZ = Math.abs(targetX) * 5 + Math.abs(targetY) * 5; // Profundidade
-        
-        // Aplicar transformações 3D
-        asciiTitle.style.transform = `
-          perspective(1000px) 
-          rotateX(${rotateX}deg) 
-          rotateY(${rotateY}deg) 
-          translateZ(${translateZ}px)
-        `;
-        
-        requestAnimationFrame(animateTitle);
-      }
-      
-      // Iniciar animação
-      animateTitle();
-    }
-    
-    // Inicializar efeito 3D do título
-    initASCII3DEffect();
-    
-    // Relógio de São Paulo
-    function initSaoPauloTime() {
-      const timeElement = document.getElementById('sao-paulo-time');
-      const timezoneElement = document.getElementById('timezone-info');
-      if (!timeElement) return;
-      
-      function updateTime() {
-        try {
-          // Criar data atual no fuso horário de São Paulo (America/Sao_Paulo)
-          const now = new Date();
-          const saoPauloTime = new Intl.DateTimeFormat('en-US', {
-            timeZone: 'America/Sao_Paulo',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: false
-          }).format(now);
-          
-          // Detectar o offset atual de São Paulo
-          const saoPauloDate = new Date(now.toLocaleString("en-US", {timeZone: "America/Sao_Paulo"}));
-          const utcDate = new Date(now.toLocaleString("en-US", {timeZone: "UTC"}));
-          const offsetMs = saoPauloDate.getTime() - utcDate.getTime();
-          const offsetHours = offsetMs / (1000 * 60 * 60);
-          
-          // Determinar o fuso horário (São Paulo oscila entre GMT-3 e GMT-2)
-          let timezoneText = '';
-          if (offsetHours === -3) {
-            timezoneText = 'GMT-3 (BRT)';
-          } else if (offsetHours === -2) {
-            timezoneText = 'GMT-2 (BRST)';
-          } else {
-            timezoneText = `GMT${offsetHours >= 0 ? '+' : ''}${offsetHours}`;
-          }
-          
-          timeElement.textContent = saoPauloTime;
-          if (timezoneElement) {
-            timezoneElement.textContent = timezoneText;
-          }
-        } catch (error) {
-          // Fallback caso não consiga detectar o fuso horário
-          console.error("Could not get São Paulo time", error);
-          const now = new Date();
-          const timeString = now.toTimeString().slice(0, 8);
-          timeElement.textContent = timeString;
-          if (timezoneElement) {
-            timezoneElement.textContent = 'GMT-3';
-          }
-        }
-      }
-      
-      // Atualizar imediatamente
-      updateTime();
-      
-      // Atualizar a cada segundo
-      setInterval(updateTime, 1000);
-    }
-    
-    // Inicializar relógio
-    initSaoPauloTime();
-    
-    // Efeito de digitação
-    function createTypingEffect(element, texts, speed, pauseDuration) {
-      let textIndex = 0;
-      let charIndex = 0;
-      let isDeleting = false;
-      
-      function typeWriter() {
-        const currentText = texts[textIndex];
-        
-        if (isDeleting) {
-          element.textContent = currentText.substring(0, charIndex - 1);
-          charIndex--;
-        } else {
-          element.textContent = currentText.substring(0, charIndex + 1);
-          charIndex++;
-        }
-        
-        let nextSpeed = isDeleting ? speed / 2 : speed;
-        
-        if (!isDeleting && charIndex === currentText.length) {
-          nextSpeed = pauseDuration;
-          isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-          isDeleting = false;
-          textIndex = (textIndex + 1) % texts.length;
-          nextSpeed = 500;
-        }
-        
-        setTimeout(typeWriter, nextSpeed);
-      }
-      
-      typeWriter();
-    }
-    
-
-    
-    // Função para animar o slogan com efeito de typing
-    function initSloganTyping() {
-      const sloganTexts = [
-        'We build websites.',
-        'Systems.',
-        'Apps.',
-        'Interfaces.',
-        'Digital experiences.'
-      ];
-      
-      const sloganLines = [
-        document.getElementById('slogan-line-1'),
-        document.getElementById('slogan-line-2'),
-        document.getElementById('slogan-line-3'),
-        document.getElementById('slogan-line-4'),
-        document.getElementById('slogan-line-5')
-      ];
-      
-      const cursor = document.getElementById('slogan-cursor');
-      
-      if (!sloganLines[0] || !cursor) {
-        console.error('Slogan elements not found');
-        return;
-      }
-      
-      let currentLineIndex = 0;
-      let currentCharIndex = 0;
-      
-      // Mostrar cursor inicialmente
-      setTimeout(() => {
-        cursor.style.opacity = '1';
-        startTyping();
-      }, 3000); // Aguarda 3 segundos antes de começar
-      
-      function startTyping() {
-        if (currentLineIndex >= sloganTexts.length) {
-          // Finalizar animação
-          setTimeout(() => {
-            cursor.style.opacity = '0';
-          }, 1000);
-          return;
-        }
-        
-        const currentLine = sloganLines[currentLineIndex];
-        const currentText = sloganTexts[currentLineIndex];
-        
-        // Mostrar a linha atual
-        currentLine.style.opacity = '1';
-        
-        function typeCharacter() {
-          if (currentCharIndex < currentText.length) {
-            currentLine.textContent = currentText.substring(0, currentCharIndex + 1);
-            currentCharIndex++;
-            
-            // Velocidade de digitação variável (mais rápida para caracteres comuns)
-            const delay = currentText[currentCharIndex - 1] === '.' ? 200 : 60 + Math.random() * 40;
-            setTimeout(typeCharacter, delay);
-          } else {
-            // Linha completa, passar para a próxima
-            currentLineIndex++;
-            currentCharIndex = 0;
-            
-            // Pausa entre linhas
-            setTimeout(startTyping, 600);
-          }
-        }
-        
-        typeCharacter();
-      }
-    }
-    
-    // Inicializar animação do slogan
-    initSloganTyping();
+    });
   });
+
+  // Observe the hero section
+  const heroSection = document.getElementById('home');
+  if (heroSection) {
+    observer.observe(heroSection);
+  }
 </script> 
