@@ -40,6 +40,9 @@ const { title, description = "MARKDEV" } = Astro.props;
   <body class="bg-custom-dark text-gray-900 transition-colors duration-300">
     <slot />
     
+    <!-- i18n initialization -->
+    <script type="module" src="/src/scripts/i18n-init.js"></script>
+    
     <!-- Scripts para funcionalidades interativas -->
     <script>
       // Intersection Observer para animações

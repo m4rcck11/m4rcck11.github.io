@@ -6,9 +6,9 @@
   <div class="container-custom">
     <div class="text-center mb-16 animate-on-scroll">
       <h2 class="text-4xl font-bold font-tech mb-4 text-gray-900 dark:text-white">
-        Get in <span class="text-gradient">Touch</span>
+        <span data-i18n="getInTouchTitle">Get in</span> <span class="text-gradient">Touch</span>
       </h2>
-      <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+      <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto" data-i18n="getInTouchSubtitle">
         Let's talk about your next project. I am always open to new opportunities and collaborations
       </p>
     </div>
@@ -16,7 +16,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
       <!-- Contact Info -->
       <div class="animate-on-scroll">
-        <h3 class="text-2xl font-bold font-display mb-8 text-gray-900 dark:text-white">Let's talk</h3>
+        <h3 class="text-2xl font-bold font-display mb-8 text-gray-900 dark:text-white" data-i18n="letsTalkTitle">Let's talk</h3>
         
         <div class="space-y-6">
           <div class="contact-item">
@@ -26,8 +26,8 @@
               </svg>
             </div>
             <div class="contact-info">
-              <h4 class="font-semibold text-gray-900 dark:text-white">Email</h4>
-              <p class="text-gray-600 dark:text-gray-400">contato@joaodev.com</p>
+              <h4 class="font-semibold text-gray-900 dark:text-white" data-i18n="email">Email</h4>
+              <p class="text-gray-600 dark:text-gray-400">this.markdev@gmail.com</p>
             </div>
           </div>
           
@@ -38,8 +38,8 @@
               </svg>
             </div>
             <div class="contact-info">
-              <h4 class="font-semibold text-gray-900 dark:text-white">Phone</h4>
-              <p class="text-gray-600 dark:text-gray-400">+55 (11) 99999-9999</p>
+              <h4 class="font-semibold text-gray-900 dark:text-white" data-i18n="phone">Phone</h4>
+              <p class="text-gray-600 dark:text-gray-400" data-i18n="phoneNumber">+55 (11) 99999-9999</p>
             </div>
           </div>
           
@@ -51,15 +51,15 @@
               </svg>
             </div>
             <div class="contact-info">
-              <h4 class="font-semibold text-gray-900 dark:text-white">Location</h4>
-              <p class="text-gray-600 dark:text-gray-400">São Paulo, Brazil</p>
+              <h4 class="font-semibold text-gray-900 dark:text-white" data-i18n="location">Location</h4>
+              <p class="text-gray-600 dark:text-gray-400" data-i18n="locationBrazil">São Paulo, Brazil</p>
             </div>
           </div>
         </div>
         
         <!-- Social Links -->
         <div class="mt-8">
-          <h4 class="text-lg font-semibold font-tech mb-4 text-gray-900 dark:text-white">Social Networks</h4>
+          <h4 class="text-lg font-semibold font-tech mb-4 text-gray-900 dark:text-white" data-i18n="socialNetworks">Social Networks</h4>
           <div class="flex space-x-4">
             <a href="https://github.com" target="_blank" class="social-contact-link">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -85,28 +85,28 @@
         <form class="contact-form" id="contact-form">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div class="form-group">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
+              <label for="name" class="form-label" data-i18n="name">Name</label>
+              <input type="text" id="name" name="name" class="form-input" data-i18n="yourName" placeholder="Your name" required>
             </div>
             
             <div class="form-group">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+              <label for="email" class="form-label" data-i18n="email">Email</label>
+              <input type="email" id="email" name="email" class="form-input" data-i18n="yourEmail" placeholder="your@email.com" required>
             </div>
           </div>
           
           <div class="form-group">
-            <label for="subject" class="form-label">Subject</label>
-            <input type="text" id="subject" name="subject" class="form-input" placeholder="Message subject" required>
+            <label for="subject" class="form-label" data-i18n="subject">Subject</label>
+            <input type="text" id="subject" name="subject" class="form-input" data-i18n="messageSubject" placeholder="Message subject" required>
           </div>
           
           <div class="form-group">
-            <label for="message" class="form-label">Message</label>
-            <textarea id="message" name="message" rows="5" class="form-input" placeholder="Your message..." required></textarea>
+            <label for="message" class="form-label" data-i18n="message">Message</label>
+            <textarea id="message" name="message" rows="5" class="form-input" data-i18n="yourMessage" placeholder="Your message..." required></textarea>
           </div>
           
           <button type="submit" class="btn-primary w-full" id="submit-btn">
-            Send Message
+            <span data-i18n="sendMessage">Send Message</span>
             <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
             </svg>
@@ -167,29 +167,18 @@
       contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Simulate form submission
-        submitBtn.innerHTML = 'Sending...';
-        submitBtn.disabled = true;
+        // Get form data
+        const formData = new FormData(contactForm);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const subject = formData.get('subject');
+        const message = formData.get('message');
         
-        setTimeout(() => {
-          submitBtn.innerHTML = `
-            Message Sent!
-            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-            </svg>
-          `;
-          
-          setTimeout(() => {
-            contactForm.reset();
-            submitBtn.innerHTML = `
-              Send Message
-              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-              </svg>
-            `;
-            submitBtn.disabled = false;
-          }, 2000);
-        }, 1000);
+        // Create mailto link
+        const mailtoLink = `mailto:this.markdev@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+        
+        // Open email client
+        window.location.href = mailtoLink;
       });
     }
   });

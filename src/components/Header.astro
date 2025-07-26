@@ -2,7 +2,7 @@
 // Header component
 ---
 
-<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+<header id="navbar" class="absolute top-0 left-0 right-0 z-50 transition-all duration-300">
   <nav class="container-custom">
     <div class="flex items-center justify-between py-4">
       <!-- Logo -->
@@ -13,26 +13,31 @@
       
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center space-x-8">
-        <a href="#about-markdev" class="nav-link" data-text="Why Us?">
-          <span class="glitch-layer">Why Us?</span>
-          <span class="glitch-layer">Why Us?</span>
-          Why Us?
+        <a href="#about-markdev" class="nav-link" data-text="Why Us?" data-i18n="whyUs">
+          <span class="glitch-layer" data-i18n="whyUs">Why Us?</span>
+          <span class="glitch-layer" data-i18n="whyUs">Why Us?</span>
+          <span data-i18n="whyUs">Why Us?</span>
         </a>
-        <a href="#services" class="nav-link" data-text="Services">
-          <span class="glitch-layer">Services</span>
-          <span class="glitch-layer">Services</span>
-          Services
+        <a href="#services" class="nav-link" data-text="Services" data-i18n="services">
+          <span class="glitch-layer" data-i18n="services">Services</span>
+          <span class="glitch-layer" data-i18n="services">Services</span>
+          <span data-i18n="services">Services</span>
         </a>
-        <button id="partners-btn" class="nav-link" data-text="Our Partners">
-          <span class="glitch-layer">Our Partners</span>
-          <span class="glitch-layer">Our Partners</span>
-          Our Partners
+        <button id="partners-btn" class="nav-link" data-text="Our Partners" data-i18n="ourPartners">
+          <span class="glitch-layer" data-i18n="ourPartners">Our Partners</span>
+          <span class="glitch-layer" data-i18n="ourPartners">Our Partners</span>
+          <span data-i18n="ourPartners">Our Partners</span>
         </button>
-        <a href="#about-me" class="nav-link" data-text="About Me">
-          <span class="glitch-layer">About Me</span>
-          <span class="glitch-layer">About Me</span>
-          About Me
+        <a href="#about-me" class="nav-link" data-text="About Me" data-i18n="aboutMe">
+          <span class="glitch-layer" data-i18n="aboutMe">About Me</span>
+          <span class="glitch-layer" data-i18n="aboutMe">About Me</span>
+          <span data-i18n="aboutMe">About Me</span>
         </a>
+        
+        <!-- Language Toggle -->
+        <button id="lang-toggle" class="nav-link language-toggle" title="Toggle Language">
+          <span class="flag-icon">🇺🇸</span>
+        </button>
       </div>
       
       <!-- Mobile Menu Button -->
@@ -46,26 +51,31 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden pb-4">
       <div class="flex flex-col space-y-4">
-        <a href="#about-markdev" class="nav-link" data-text="Why Us?">
-          <span class="glitch-layer">Why Us?</span>
-          <span class="glitch-layer">Why Us?</span>
-          Why Us?
+        <a href="#about-markdev" class="nav-link" data-text="Why Us?" data-i18n="whyUs">
+          <span class="glitch-layer" data-i18n="whyUs">Why Us?</span>
+          <span class="glitch-layer" data-i18n="whyUs">Why Us?</span>
+          <span data-i18n="whyUs">Why Us?</span>
         </a>
-        <a href="#services" class="nav-link" data-text="Services">
-          <span class="glitch-layer">Services</span>
-          <span class="glitch-layer">Services</span>
-          Services
+        <a href="#services" class="nav-link" data-text="Services" data-i18n="services">
+          <span class="glitch-layer" data-i18n="services">Services</span>
+          <span class="glitch-layer" data-i18n="services">Services</span>
+          <span data-i18n="services">Services</span>
         </a>
-        <button id="partners-btn-mobile" class="nav-link" data-text="Our Partners">
-          <span class="glitch-layer">Our Partners</span>
-          <span class="glitch-layer">Our Partners</span>
-          Our Partners
+        <button id="partners-btn-mobile" class="nav-link" data-text="Our Partners" data-i18n="ourPartners">
+          <span class="glitch-layer" data-i18n="ourPartners">Our Partners</span>
+          <span class="glitch-layer" data-i18n="ourPartners">Our Partners</span>
+          <span data-i18n="ourPartners">Our Partners</span>
         </button>
-        <a href="#about-me" class="nav-link" data-text="About Me">
-          <span class="glitch-layer">About Me</span>
-          <span class="glitch-layer">About Me</span>
-          About Me
+        <a href="#about-me" class="nav-link" data-text="About Me" data-i18n="aboutMe">
+          <span class="glitch-layer" data-i18n="aboutMe">About Me</span>
+          <span class="glitch-layer" data-i18n="aboutMe">About Me</span>
+          <span data-i18n="aboutMe">About Me</span>
         </a>
+        
+        <!-- Mobile Language Toggle -->
+        <button id="lang-toggle-mobile" class="nav-link language-toggle" title="Toggle Language">
+          <span class="flag-icon">🇺🇸</span>
+        </button>
       </div>
     </div>
   </nav>
@@ -257,10 +267,78 @@
     --cyber-cyan: #00ffff;
     --cyber-magenta: #ff00ff;
   }
+  
+  /* Language toggle styles */
+  .language-toggle {
+    @apply relative cursor-pointer transition-transform duration-300 hover:scale-110;
+    min-width: 40px;
+  }
+  
+  .flag-icon {
+    font-size: 1.2rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  .language-toggle:hover .flag-icon {
+    transform: scale(1.1);
+  }
 </style>
 
 <script>
+  // Import i18n functions
+  import { detectLanguage, saveLanguage, t, getTranslations } from '../i18n/index.js';
+  
   document.addEventListener('DOMContentLoaded', () => {
+    // Initialize language
+    let currentLanguage = detectLanguage();
+    
+    // Update UI with current language
+    function updateLanguage(lang) {
+      currentLanguage = lang;
+      saveLanguage(lang);
+      
+      // Update flag icons
+      const flagIcons = document.querySelectorAll('.flag-icon');
+      flagIcons.forEach(icon => {
+        icon.textContent = lang === 'pt' ? '🇧🇷' : '🇺🇸';
+      });
+      
+      // Update all translatable elements
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const translation = t(key, lang);
+        
+        // Update data-text attribute for glitch effect
+        if (el.hasAttribute('data-text')) {
+          el.setAttribute('data-text', translation);
+        }
+        
+        el.textContent = translation;
+      });
+      
+      // Dispatch custom event for other components
+      window.dispatchEvent(new CustomEvent('languageChanged', { 
+        detail: { language: lang, translations: getTranslations(lang) } 
+      }));
+    }
+    
+    // Set initial language
+    updateLanguage(currentLanguage);
+    
+    // Language toggle functionality
+    const langToggle = document.getElementById('lang-toggle');
+    const langToggleMobile = document.getElementById('lang-toggle-mobile');
+    
+    function toggleLanguage() {
+      const newLang = currentLanguage === 'en' ? 'pt' : 'en';
+      updateLanguage(newLang);
+    }
+    
+    langToggle?.addEventListener('click', toggleLanguage);
+    langToggleMobile?.addEventListener('click', toggleLanguage);
+    
     // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');

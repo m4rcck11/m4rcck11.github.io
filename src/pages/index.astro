@@ -29,16 +29,16 @@ import '../styles/global.css';
            <div class="space-y-8">
              <div class="opacity-0 transform translate-y-10 transition-all duration-1000" data-scroll-animate>
                <h2 class="text-4xl lg:text-5xl font-tech font-bold mb-4" style="color: #d1d5db;">
-                 About MARKDEV<span class="animate-blink" style="color: #adaeb1;">|</span>
+                 <span data-i18n="aboutMarkdev">About MARKDEV</span><span class="animate-blink" style="color: #adaeb1;">|</span>
                </h2>
              </div>
             
                          <div class="space-y-6 text-lg opacity-0 transform translate-y-10 transition-all duration-1000 delay-300" data-scroll-animate style="color: #d1d5db; font-family: 'Space Grotesk', 'JetBrains Mono', monospace;">
-               <p>
+               <p data-i18n="aboutMarkdevDesc1">
                  <strong style="color: #e5e7eb; font-family: 'Orbitron', monospace; letter-spacing: 1px;">MARKDEV</strong> is a development studio founded by Marcelo Barros, dedicated to delivering custom digital solutions. We partner with companies, businesses, and individuals to create technology that meets their unique needs—from workflow automations and engaging websites to strategic digital optimization and consulting. Our goal is to be the benchmark for creating personalized solutions that drive results.
                </p>
                
-               <p>
+               <p data-i18n="aboutMarkdevDesc2">
                  We are more than developers; we are your <strong style="color: #e5e7eb; font-family: 'Orbitron', monospace;">strategic partners</strong>. Our mission is to work side-by-side with you to build a strong and authentic digital presence, no matter the scale or scope of your project. From internal automation to public-facing solutions, we use cutting-edge technology and strategies designed exclusively for your goals. With <strong style="color: #e5e7eb; font-family: 'Orbitron', monospace; letter-spacing: 1px;">MARKDEV</strong>, your project comes to life and your brand grows stronger.
                </p>
               
@@ -51,7 +51,7 @@ import '../styles/global.css';
                      <div class="w-3 h-3 bg-green-500 rounded-full"></div>
                    </div>
                    <div class="flex-1 text-center">
-                     <span class="text-sm font-bold tracking-widest" style="color: #9ca3af; font-family: 'Orbitron', monospace;">OUR_SERVICES</span>
+                     <span class="text-sm font-bold tracking-widest" style="color: #9ca3af; font-family: 'Orbitron', monospace;" data-i18n="ourServices">OUR_SERVICES</span>
                    </div>
                  </div>
                  <!-- Mac Window Content -->
@@ -59,23 +59,23 @@ import '../styles/global.css';
                    <ul class="space-y-4" style="font-family: 'Space Grotesk', monospace;">
                      <li class="flex items-center">
                        <span class="w-2 h-2 rounded-full mr-4" style="background-color: #9ca3af;"></span>
-                       <span style="color: #d1d5db;">→ Modern website creation <strong style="color: #e5e7eb; font-family: 'JetBrains Mono', monospace;">[OPTIONAL_CMS]</strong></span>
+                       <span style="color: #d1d5db;">→ <span data-i18n="modernWebsiteCreation">Modern website creation</span> <strong style="color: #e5e7eb; font-family: 'JetBrains Mono', monospace;">[OPTIONAL_CMS]</strong></span>
                      </li>
                      <li class="flex items-center">
                        <span class="w-2 h-2 rounded-full mr-4" style="background-color: #9ca3af;"></span>
-                       <span style="color: #d1d5db;">→ <strong style="color: #e5e7eb; font-family: 'JetBrains Mono', monospace;">[SEO_WORDPRESS]</strong> optimization</span>
+                       <span style="color: #d1d5db;">→ <strong style="color: #e5e7eb; font-family: 'JetBrains Mono', monospace;">[SEO_WORDPRESS]</strong> <span data-i18n="seoOptimization">optimization</span></span>
                      </li>
                      <li class="flex items-center">
                        <span class="w-2 h-2 rounded-full mr-4" style="background-color: #9ca3af;"></span>
-                       <span style="color: #d1d5db;">→ <strong style="color: #e5e7eb; font-family: 'JetBrains Mono', monospace;">[BACKEND_SYSTEMS]</strong> development</span>
+                       <span style="color: #d1d5db;">→ <strong style="color: #e5e7eb; font-family: 'JetBrains Mono', monospace;">[BACKEND_SYSTEMS]</strong> <span data-i18n="backendDevelopment">development</span></span>
                      </li>
                      <li class="flex items-center">
                        <span class="w-2 h-2 rounded-full mr-4" style="background-color: #9ca3af;"></span>
-                       <span style="color: #d1d5db;">→ <strong style="color: #e5e7eb; font-family: 'JetBrains Mono', monospace;">[DIGITAL_TRANSFORM]</strong> consulting</span>
+                       <span style="color: #d1d5db;">→ <strong style="color: #e5e7eb; font-family: 'JetBrains Mono', monospace;">[DIGITAL_TRANSFORM]</strong> <span data-i18n="digitalConsulting">consulting</span></span>
                      </li>
                      <li class="flex items-center">
                        <span class="w-2 h-2 rounded-full mr-4" style="background-color: #9ca3af;"></span>
-                       <span style="color: #d1d5db;">→ and more. <a href="#services" style="color: #3b82f6; text-decoration: underline;">See full services</a></span>
+                       <span style="color: #d1d5db;">→ <span data-i18n="andMore">and more</span>. <a href="#services" style="color: #3b82f6; text-decoration: underline;" data-i18n="seeFullServices">See full services</a></span>
                      </li>
                    </ul>
                  </div>
@@ -426,9 +426,9 @@ import '../styles/global.css';
         <div class="text-center mt-16 opacity-0 transform translate-y-10 transition-all duration-1000 delay-1200" data-scroll-animate>
           <div class="inline-flex items-center gap-4 p-6 rounded-lg border" style="background-color: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
             <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-            <span class="text-lg font-mono tracking-wider">Ready to start your project?</span>
-            <a href="#contact" class="px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-100 transition-all duration-300">
-              Let's Talk
+            <span class="text-lg font-mono tracking-wider" data-i18n="readyToStart">Ready to start your project?</span>
+            <a href="mailto:this.markdev@gmail.com" class="px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-100 transition-all duration-300">
+              <span data-i18n="letsTalk">Let's Talk</span>
             </a>
           </div>
         </div>
@@ -576,9 +576,9 @@ import '../styles/global.css';
         <div class="text-center mt-16 opacity-0 transform translate-y-10 transition-all duration-1000 delay-1000" data-scroll-animate>
           <div class="inline-flex items-center gap-4 p-6 rounded-lg border" style="background-color: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
             <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-            <span class="text-lg font-mono tracking-wider">Want to see more projects?</span>
-            <a href="#contact" class="px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-100 transition-all duration-300">
-              Get in Touch
+            <span class="text-lg font-mono tracking-wider" data-i18n="wantToSeeMore">Want to see more projects?</span>
+            <a href="mailto:this.markdev@gmail.com" class="px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-100 transition-all duration-300">
+              <span data-i18n="getInTouch">Get in Touch</span>
             </a>
           </div>
         </div>
@@ -594,7 +594,7 @@ import '../styles/global.css';
       <WindowsXPMainWindow />
       <WindowsXPProfile />
       <div class="container-custom text-center text-white z-10 relative">
-        <h2 class="text-6xl font-tech font-bold mb-6 opacity-0 transform translate-y-10 transition-all duration-1000" data-scroll-animate>
+        <h2 class="text-6xl font-tech font-bold mb-6 opacity-0 transform translate-y-10 transition-all duration-1000" data-scroll-animate data-i18n="aboutMeTitle">
           About Me
         </h2>
       </div>
@@ -1781,11 +1781,11 @@ import '../styles/global.css';
           
           <!-- Footer -->
           <div class="text-center mt-16 pt-12 border-t border-gray-800">
-            <p class="text-xl text-gray-500 mb-6">
+            <p class="text-xl text-gray-500 mb-6" data-i18n="readyToWork">
               Ready to work with our team?
             </p>
-            <a href="#contact" class="inline-flex items-center px-10 py-4 bg-gray-800 text-gray-100 font-semibold rounded-full hover:bg-gray-700 transition-all duration-300 text-lg">
-              Get in Touch
+            <a href="mailto:this.markdev@gmail.com" class="inline-flex items-center px-10 py-4 bg-gray-800 text-gray-100 font-semibold rounded-full hover:bg-gray-700 transition-all duration-300 text-lg">
+              <span data-i18n="getInTouch">Get in Touch</span>
             </a>
           </div>
         </div>
