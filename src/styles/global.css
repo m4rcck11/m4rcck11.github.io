@@ -5,12 +5,9 @@
 @tailwind utilities;
 
 @layer base {
-  /* Scroll snap container */
   html {
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
     overflow-y: auto;
-    height: 100vh;
   }
   
   body {
@@ -222,11 +219,6 @@
     animation-delay: 600ms;
   }
   
-  /* Scroll snap points */
-  .snap-section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
 }
 
 /* Services Cards Styles */
